@@ -1,0 +1,72 @@
+Coluna_Original,Coluna_Padronizada,Tipo_Variavel_Python
+Data abertura plan.,Data_Abertura,datetime
+Material,Codigo_Material,str
+Txt.brv.material,Texto_Breve_Material,str
+Grupo de mercadorias,Grupo_Mercadoria,str
+Setor de atividade,Setor_Atividade,str
+Nº peça fabricante,Numero_Peca_Fabricante,str
+Planejador MRP,Planejador_MRP,str
+Grupo MRP,Grupo_MRP,str
+Tipo de MRP,Tipo_MRP,str
+Prz.entrg.prev.,Prazo_Entrega_Previsto,int
+Estoque total,Estoque_Total,float
+Ponto reabastec.,Ponto_Reabastecimento,float
+Estoque máximo,Estoque_Maximo,float
+Estoque de segurança,Estoque_Seguranca,float
+Valor total,Valor_Total_Em_Estoque,float
+CMM,Consumo_Medio_Mensal,float
+Demanda,Perfil_Demanda,str
+Demanda Med.,Demanda_Mensal,float
+Preço Unit.,Preco_Unitario,float
+Qtd. RTP1,RTP1,float
+Qtd. RTP2,RTP2,float
+Qtd. RTP3,RTP3,float
+Qtd. RTP6,RTP6,float
+Sld. Virtual,Saldo_Virtual,float
+Qtd.ordem planejada,Quantidade_Ordem,float
+Valor OP,Valor_Total_Ordem,float
+Responsável,Responsavel,str
+Criticidade,Criticidade,str
+Qtd. LMR,Quantidade_LMR,float
+Dem. Pro.,Demanda_Programada,float
+Dt. Ult. Pedido,Data_Ultimo_Pedido,datetime
+Fornecedor,Codigo_Fornecedor,str
+Nome,Nome_Fornecedor,str
+Dt. Ult. Requisição,Data_Ultima_Requisicao,datetime
+Qtd. Pedido,Quantidade_Pedida,float
+Qtd. Requisição,Quantidade_Requisitada,float
+Qtd. RemCG,Quantidade_Remessa_CG,float
+Dt. Ult. 201,Data_Ultimo_Consumo,datetime
+Qt. 201 - 12 Meses,Quantidade_201_12m,float
+1 LTD,LTD_1,float
+2 LTD,LTD_2,float
+3 LTD,LTD_3,float
+4 LTD,LTD_4,float
+5 LTD,LTD_5,float
+6 LTD,LTD_6,float
+7 LTD,LTD_7,float
+8 LTD,LTD_8,float
+9 LTD,LTD_9,float
+10 LTD,LTD_10,float
+11 LTD,LTD_11,float
+12 LTD,LTD_12,float
+13 LTD,LTD_13,float
+14 LTD,LTD_14,float
+15 LTD,LTD_15,float
+16 LTD,LTD_16,float
+17 LTD,LTD_17,float
+18 LTD,LTD_18,float
+19 LTD,LTD_19,float
+20 LTD,LTD_20,float
+Código ABC,Classificacao_ABC,str
+AdminLoteObrig.,Adicional_Lote_Obrigatorio,bool
+Texto - pt,Texto_PT,str
+Texto - es,Texto_ES,str
+Texto OBS - pt,Texto_Observacao_PT,str
+Texto OBS - es,Texto_Observacao_ES,str
+Texto QM - pt,Texto_Qualidade_Material_PT,str
+Texto QM - es,Texto_Qualidade_Material_ES,str
+Texto DB - pt,Texto_Dados_Basicos_PT,str
+Texto DB - es,Texto_Dados_Basicos_ES,str
+Volume,Volume,float
+Un.Volume,Unidade_Volume,str

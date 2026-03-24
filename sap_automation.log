@@ -1,0 +1,793 @@
+2026-03-11 10:31:43,785 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Step1-ETL.xlsx (272 rows)
+2026-03-11 10:31:43,936 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\DGOMEZ\Step1-ETL_DGOMEZ.xlsx: 24 rows
+2026-03-11 10:31:44,298 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\GYEGROS\Step1-ETL_GYEGROS.xlsx: 55 rows
+2026-03-11 10:31:44,570 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\HERMESI\Step1-ETL_HERMESI.xlsx: 80 rows
+2026-03-11 10:31:44,778 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\LUCASD\Step1-ETL_LUCASD.xlsx: 45 rows
+2026-03-11 10:31:45,015 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Step1-ETL_PEDROHVB.xlsx: 43 rows
+2026-03-11 10:31:45,203 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\VICKY\Step1-ETL_VICKY.xlsx: 25 rows
+2026-03-11 10:31:52,754 - INFO - AIModule initialized with model: google/gemini-3.1-flash-lite-preview
+2026-03-11 10:32:12,785 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 10:32:12,908 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 10:32:12,919 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 10:32:13,367 - INFO - GRPM LLM: TROCAR=1 | INCERTO=0 | MANTER=9
+2026-03-11 10:32:13,433 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_GRPM.xlsx (1 rows)
+2026-03-11 10:32:13,492 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Validation_GRPM_PEDROHVB.xlsx: 1 rows
+2026-03-11 10:32:13,502 - INFO - Generating embeddings for 6 rows...
+2026-03-11 10:32:13,521 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/embeddings "HTTP/1.1 200 OK"
+2026-03-11 10:32:16,250 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/embeddings "HTTP/1.1 200 OK"
+2026-03-11 10:32:18,558 - INFO - Text AI audit: 6 rows below threshold.
+2026-03-11 10:32:19,485 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 10:32:21,108 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 10:32:21,177 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 10:32:21,308 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 10:32:21,336 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 10:32:21,508 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 10:32:22,669 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 10:32:22,820 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 10:32:22,820 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 10:32:23,158 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 10:32:24,142 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 10:32:24,194 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 10:32:24,277 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 10:32:24,325 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 10:32:24,654 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 10:32:26,257 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 10:32:26,664 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_OBS_PreCheck.xlsx (9 rows)
+2026-03-11 10:32:26,729 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Validation_OBS_PreCheck_PEDROHVB.xlsx: 9 rows
+2026-03-11 10:32:27,520 - INFO - Cache loaded: 36 entries from cache\search_cache.json
+2026-03-11 10:32:27,520 - INFO - ReferenceValidator ready | model=perplexity/sonar | cache=cache\search_cache.json | entries=36 | expired_purged=0
+2026-03-11 10:32:30,420 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 10:32:33,041 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 10:32:39,953 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_Reference.xlsx (5 rows)
+2026-03-11 10:32:40,028 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Validation_Reference_PEDROHVB.xlsx: 5 rows
+2026-03-11 10:32:40,130 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_Images.xlsx (10 rows)
+2026-03-11 10:32:40,194 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Validation_Images_PEDROHVB.xlsx: 10 rows
+2026-03-11 10:32:40,201 - INFO - ref_obs_flag: 8 materials with reference documentation issues.
+2026-03-11 10:32:40,465 - INFO - Debug export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\DEBUG_Full.xlsx (10 rows, 106 cols)
+2026-03-11 12:23:06,126 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Step1-ETL.xlsx (272 rows)
+2026-03-11 12:23:06,291 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\DGOMEZ\Step1-ETL_DGOMEZ.xlsx: 24 rows
+2026-03-11 12:23:06,502 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\GYEGROS\Step1-ETL_GYEGROS.xlsx: 55 rows
+2026-03-11 12:23:06,767 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\HERMESI\Step1-ETL_HERMESI.xlsx: 80 rows
+2026-03-11 12:23:06,985 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\LUCASD\Step1-ETL_LUCASD.xlsx: 45 rows
+2026-03-11 12:23:07,175 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Step1-ETL_PEDROHVB.xlsx: 43 rows
+2026-03-11 12:23:07,322 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\VICKY\Step1-ETL_VICKY.xlsx: 25 rows
+2026-03-11 12:23:12,156 - INFO - AIModule initialized with model: google/gemini-3.1-flash-lite-preview
+2026-03-11 12:23:24,084 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:23:25,603 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:23:26,058 - INFO - GRPM LLM: TROCAR=1 | INCERTO=0 | MANTER=19
+2026-03-11 12:23:26,136 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_GRPM.xlsx (1 rows)
+2026-03-11 12:23:26,210 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Validation_GRPM_PEDROHVB.xlsx: 1 rows
+2026-03-11 12:23:26,219 - INFO - Generating embeddings for 9 rows...
+2026-03-11 12:23:26,243 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/embeddings "HTTP/1.1 200 OK"
+2026-03-11 12:23:32,088 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/embeddings "HTTP/1.1 200 OK"
+2026-03-11 12:23:34,178 - INFO - Text AI audit: 9 rows below threshold.
+2026-03-11 12:23:35,521 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:23:36,808 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:23:36,842 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:23:36,937 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:23:36,951 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:23:36,954 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:23:37,081 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:23:37,985 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:23:38,765 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:23:38,872 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_Texts.xlsx (1 rows)
+2026-03-11 12:23:38,945 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Validation_Texts_PEDROHVB.xlsx: 1 rows
+2026-03-11 12:23:39,970 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:23:40,063 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:23:40,076 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:23:40,320 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:23:41,578 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:23:41,721 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:23:41,829 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:23:42,090 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:23:42,117 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:23:42,360 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:23:42,864 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:23:42,963 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:23:43,391 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:23:43,719 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:23:43,745 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:23:44,795 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:23:44,796 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:23:45,679 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:23:45,792 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:23:46,030 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:23:46,434 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_OBS_PreCheck.xlsx (13 rows)
+2026-03-11 12:23:46,503 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Validation_OBS_PreCheck_PEDROHVB.xlsx: 13 rows
+2026-03-11 12:23:47,350 - INFO - Cache loaded: 38 entries from cache\search_cache.json
+2026-03-11 12:23:47,351 - INFO - ReferenceValidator ready | model=perplexity/sonar | cache=cache\search_cache.json | entries=38 | expired_purged=0
+2026-03-11 12:23:49,145 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:23:49,592 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:23:49,702 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:23:55,800 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_Reference.xlsx (13 rows)
+2026-03-11 12:23:55,885 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Validation_Reference_PEDROHVB.xlsx: 13 rows
+2026-03-11 12:23:56,112 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_Images.xlsx (20 rows)
+2026-03-11 12:23:56,182 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Validation_Images_PEDROHVB.xlsx: 20 rows
+2026-03-11 12:23:56,192 - INFO - ref_obs_flag: 12 materials with reference documentation issues.
+2026-03-11 12:23:56,544 - INFO - Debug export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\DEBUG_Full.xlsx (20 rows, 106 cols)
+2026-03-11 12:43:59,007 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Step1-ETL.xlsx (272 rows)
+2026-03-11 12:43:59,176 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\DGOMEZ\Step1-ETL_DGOMEZ.xlsx: 24 rows
+2026-03-11 12:43:59,448 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\GYEGROS\Step1-ETL_GYEGROS.xlsx: 55 rows
+2026-03-11 12:43:59,838 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\HERMESI\Step1-ETL_HERMESI.xlsx: 80 rows
+2026-03-11 12:44:00,036 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\LUCASD\Step1-ETL_LUCASD.xlsx: 45 rows
+2026-03-11 12:44:00,249 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Step1-ETL_PEDROHVB.xlsx: 43 rows
+2026-03-11 12:44:00,422 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\VICKY\Step1-ETL_VICKY.xlsx: 25 rows
+2026-03-11 12:44:05,440 - INFO - AIModule initialized with model: google/gemini-3.1-flash-lite-preview
+2026-03-11 12:44:15,475 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:44:15,843 - INFO - GRPM LLM: TROCAR=0 | INCERTO=0 | MANTER=10
+2026-03-11 12:44:15,850 - INFO - Generating embeddings for 3 rows...
+2026-03-11 12:44:15,869 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/embeddings "HTTP/1.1 200 OK"
+2026-03-11 12:44:18,561 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/embeddings "HTTP/1.1 200 OK"
+2026-03-11 12:44:22,891 - INFO - Text AI audit: 3 rows below threshold.
+2026-03-11 12:44:23,808 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:44:24,203 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:44:25,562 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:44:26,683 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:44:27,942 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:44:28,078 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:44:28,202 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:44:28,260 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:44:28,313 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:44:28,336 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:44:28,903 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:44:29,030 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:44:29,231 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:44:29,689 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_OBS_PreCheck.xlsx (7 rows)
+2026-03-11 12:44:29,770 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Validation_OBS_PreCheck_PEDROHVB.xlsx: 7 rows
+2026-03-11 12:44:30,738 - INFO - Cache loaded: 41 entries from cache\search_cache.json
+2026-03-11 12:44:30,739 - INFO - ReferenceValidator ready | model=perplexity/sonar | cache=cache\search_cache.json | entries=41 | expired_purged=0
+2026-03-11 12:44:33,070 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 12:44:35,225 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_Reference.xlsx (3 rows)
+2026-03-11 12:44:35,301 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Validation_Reference_PEDROHVB.xlsx: 3 rows
+2026-03-11 12:44:35,406 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_Images.xlsx (10 rows)
+2026-03-11 12:44:35,477 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Validation_Images_PEDROHVB.xlsx: 10 rows
+2026-03-11 12:44:35,485 - INFO - ref_obs_flag: 7 materials with reference documentation issues.
+2026-03-11 12:44:35,843 - INFO - Debug export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\DEBUG_Full.xlsx (10 rows, 106 cols)
+2026-03-11 13:33:39,114 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Step1-ETL.xlsx (272 rows)
+2026-03-11 13:33:39,267 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\DGOMEZ\Step1-ETL_DGOMEZ.xlsx: 24 rows
+2026-03-11 13:33:39,648 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\GYEGROS\Step1-ETL_GYEGROS.xlsx: 55 rows
+2026-03-11 13:33:39,925 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\HERMESI\Step1-ETL_HERMESI.xlsx: 80 rows
+2026-03-11 13:33:40,153 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\LUCASD\Step1-ETL_LUCASD.xlsx: 45 rows
+2026-03-11 13:33:40,337 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Step1-ETL_PEDROHVB.xlsx: 43 rows
+2026-03-11 13:33:40,483 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\VICKY\Step1-ETL_VICKY.xlsx: 25 rows
+2026-03-11 13:33:45,321 - INFO - AIModule initialized with model: google/gemini-3.1-flash-lite-preview
+2026-03-11 13:33:54,207 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 13:33:54,656 - INFO - GRPM LLM: TROCAR=1 | INCERTO=0 | MANTER=9
+2026-03-11 13:33:54,718 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_GRPM.xlsx (1 rows)
+2026-03-11 13:33:54,776 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Validation_GRPM_PEDROHVB.xlsx: 1 rows
+2026-03-11 13:33:54,783 - INFO - Generating embeddings for 4 rows...
+2026-03-11 13:33:54,801 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/embeddings "HTTP/1.1 200 OK"
+2026-03-11 13:33:55,581 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/embeddings "HTTP/1.1 200 OK"
+2026-03-11 13:33:56,370 - INFO - Text AI audit: 4 rows below threshold.
+2026-03-11 13:33:57,573 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 13:33:57,693 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 13:33:58,928 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 13:33:58,983 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 13:34:00,135 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 13:34:00,168 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 13:34:00,237 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 13:34:00,497 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 13:34:01,462 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 13:34:01,489 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 13:34:01,694 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 13:34:01,914 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 13:34:02,137 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 13:34:02,418 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 13:34:02,836 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_OBS_PreCheck.xlsx (6 rows)
+2026-03-11 13:34:02,904 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Validation_OBS_PreCheck_PEDROHVB.xlsx: 6 rows
+2026-03-11 13:34:03,861 - INFO - Cache loaded: 42 entries from cache\search_cache.json
+2026-03-11 13:34:03,861 - INFO - ReferenceValidator ready | model=perplexity/sonar | cache=cache\search_cache.json | entries=42 | expired_purged=0
+2026-03-11 13:34:04,050 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_Reference.xlsx (6 rows)
+2026-03-11 13:34:04,163 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Validation_Reference_PEDROHVB.xlsx: 6 rows
+2026-03-11 13:34:04,283 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_Images.xlsx (10 rows)
+2026-03-11 13:34:04,371 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Validation_Images_PEDROHVB.xlsx: 10 rows
+2026-03-11 13:34:04,378 - INFO - ref_obs_flag: 6 materials with reference documentation issues.
+2026-03-11 13:34:04,701 - INFO - Debug export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\DEBUG_Full.xlsx (10 rows, 106 cols)
+2026-03-11 13:34:04,758 - INFO - Dashboard FULL -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE (10 rows)
+2026-03-11 13:34:04,816 - INFO - Dashboard PEDROHVB -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB (10 rows)
+2026-03-11 14:40:04,222 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Step1-ETL.xlsx (272 rows)
+2026-03-11 14:40:04,384 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\DGOMEZ\Step1-ETL_DGOMEZ.xlsx: 24 rows
+2026-03-11 14:40:04,606 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\GYEGROS\Step1-ETL_GYEGROS.xlsx: 55 rows
+2026-03-11 14:40:05,063 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\HERMESI\Step1-ETL_HERMESI.xlsx: 80 rows
+2026-03-11 14:40:05,316 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\LUCASD\Step1-ETL_LUCASD.xlsx: 45 rows
+2026-03-11 14:40:05,587 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Step1-ETL_PEDROHVB.xlsx: 43 rows
+2026-03-11 14:40:05,748 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\VICKY\Step1-ETL_VICKY.xlsx: 25 rows
+2026-03-11 14:40:11,577 - INFO - AIModule initialized with model: google/gemini-3.1-flash-lite-preview
+2026-03-11 14:40:26,171 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:40:26,553 - INFO - GRPM LLM: TROCAR=1 | INCERTO=0 | MANTER=9
+2026-03-11 14:40:26,644 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_GRPM.xlsx (1 rows)
+2026-03-11 14:40:26,708 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Validation_GRPM_PEDROHVB.xlsx: 1 rows
+2026-03-11 14:40:26,719 - INFO - Generating embeddings for 6 rows...
+2026-03-11 14:40:26,742 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/embeddings "HTTP/1.1 200 OK"
+2026-03-11 14:40:46,045 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/embeddings "HTTP/1.1 200 OK"
+2026-03-11 14:40:47,670 - INFO - Text AI audit: 6 rows below threshold.
+2026-03-11 14:40:48,777 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:40:48,859 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:40:48,924 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:40:50,334 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:40:50,598 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:40:50,920 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:40:51,023 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_Texts.xlsx (1 rows)
+2026-03-11 14:40:51,083 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Validation_Texts_PEDROHVB.xlsx: 1 rows
+2026-03-11 14:40:52,395 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:40:52,396 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:40:52,410 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:40:52,462 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:40:53,747 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:40:53,749 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:40:54,689 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:40:55,053 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:40:55,373 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:40:55,524 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:40:55,880 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_OBS_PreCheck.xlsx (8 rows)
+2026-03-11 14:40:55,974 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Validation_OBS_PreCheck_PEDROHVB.xlsx: 8 rows
+2026-03-11 14:40:57,053 - INFO - Cache loaded: 42 entries from cache\search_cache.json
+2026-03-11 14:40:57,054 - INFO - ReferenceValidator ready | model=perplexity/sonar | cache=cache\search_cache.json | entries=42 | expired_purged=0
+2026-03-11 14:40:58,964 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:41:01,232 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_Reference.xlsx (4 rows)
+2026-03-11 14:41:01,312 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Validation_Reference_PEDROHVB.xlsx: 4 rows
+2026-03-11 14:41:01,422 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_Images.xlsx (10 rows)
+2026-03-11 14:41:01,507 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Validation_Images_PEDROHVB.xlsx: 10 rows
+2026-03-11 14:41:01,518 - INFO - ref_obs_flag: 7 materials with reference documentation issues.
+2026-03-11 14:41:01,961 - INFO - Debug export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\DEBUG_Full.xlsx (10 rows, 104 cols)
+2026-03-11 14:41:02,010 - INFO - Dashboard FULL -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE (10 rows)
+2026-03-11 14:41:02,056 - INFO - Dashboard PEDROHVB -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB (10 rows)
+2026-03-11 14:55:17,307 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Step1-ETL.xlsx (272 rows)
+2026-03-11 14:55:17,635 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\DGOMEZ\Step1-ETL_DGOMEZ.xlsx: 24 rows
+2026-03-11 14:55:18,144 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\GYEGROS\Step1-ETL_GYEGROS.xlsx: 55 rows
+2026-03-11 14:55:18,522 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\HERMESI\Step1-ETL_HERMESI.xlsx: 80 rows
+2026-03-11 14:55:18,791 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\LUCASD\Step1-ETL_LUCASD.xlsx: 45 rows
+2026-03-11 14:55:19,075 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Step1-ETL_PEDROHVB.xlsx: 43 rows
+2026-03-11 14:55:19,345 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\VICKY\Step1-ETL_VICKY.xlsx: 25 rows
+2026-03-11 14:55:25,221 - INFO - AIModule initialized with model: google/gemini-3.1-flash-lite-preview
+2026-03-11 14:55:36,911 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:55:37,073 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:55:39,039 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:55:39,391 - INFO - GRPM LLM: TROCAR=1 | INCERTO=0 | MANTER=14
+2026-03-11 14:55:39,480 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_GRPM.xlsx (1 rows)
+2026-03-11 14:55:39,553 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Validation_GRPM_PEDROHVB.xlsx: 1 rows
+2026-03-11 14:55:39,565 - INFO - Generating embeddings for 8 rows...
+2026-03-11 14:55:39,582 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/embeddings "HTTP/1.1 200 OK"
+2026-03-11 14:55:40,587 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/embeddings "HTTP/1.1 200 OK"
+2026-03-11 14:55:41,605 - INFO - Text AI audit: 8 rows below threshold.
+2026-03-11 14:55:42,470 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:55:42,566 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:55:42,727 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:55:42,882 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:55:42,980 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:55:44,783 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:55:44,851 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:55:44,900 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:55:45,012 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_Texts.xlsx (1 rows)
+2026-03-11 14:55:45,271 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Validation_Texts_PEDROHVB.xlsx: 1 rows
+2026-03-11 14:55:46,350 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:55:46,418 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:55:46,501 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:55:46,681 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:55:46,748 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:55:47,721 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:55:47,722 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:55:48,214 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:55:48,344 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:55:48,896 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:55:49,102 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:55:49,225 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:55:49,572 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:55:50,059 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:55:50,796 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:55:51,413 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_OBS_PreCheck.xlsx (9 rows)
+2026-03-11 14:55:51,556 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Validation_OBS_PreCheck_PEDROHVB.xlsx: 9 rows
+2026-03-11 14:55:52,550 - INFO - Cache loaded: 43 entries from cache\search_cache.json
+2026-03-11 14:55:52,551 - INFO - ReferenceValidator ready | model=perplexity/sonar | cache=cache\search_cache.json | entries=43 | expired_purged=0
+2026-03-11 14:55:53,955 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:55:54,260 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 14:55:56,498 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_Reference.xlsx (9 rows)
+2026-03-11 14:55:56,604 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Validation_Reference_PEDROHVB.xlsx: 9 rows
+2026-03-11 14:55:56,912 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_Images.xlsx (15 rows)
+2026-03-11 14:55:57,018 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Validation_Images_PEDROHVB.xlsx: 15 rows
+2026-03-11 14:55:57,031 - INFO - ref_obs_flag: 8 materials with reference documentation issues.
+2026-03-11 14:55:57,703 - INFO - Debug export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\DEBUG_Full.xlsx (15 rows, 104 cols)
+2026-03-11 14:55:57,777 - INFO - Dashboard FULL -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE (15 rows)
+2026-03-11 14:55:57,839 - INFO - Dashboard PEDROHVB -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB (15 rows)
+2026-03-11 15:00:45,121 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Step1-ETL.xlsx (272 rows)
+2026-03-11 15:00:45,314 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\DGOMEZ\Step1-ETL_DGOMEZ.xlsx: 24 rows
+2026-03-11 15:00:45,530 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\GYEGROS\Step1-ETL_GYEGROS.xlsx: 55 rows
+2026-03-11 15:00:45,850 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\HERMESI\Step1-ETL_HERMESI.xlsx: 80 rows
+2026-03-11 15:00:46,087 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\LUCASD\Step1-ETL_LUCASD.xlsx: 45 rows
+2026-03-11 15:00:46,321 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Step1-ETL_PEDROHVB.xlsx: 43 rows
+2026-03-11 15:00:46,487 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\VICKY\Step1-ETL_VICKY.xlsx: 25 rows
+2026-03-11 15:00:52,171 - INFO - AIModule initialized with model: google/gemini-3.1-flash-lite-preview
+2026-03-11 15:01:07,821 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:01:08,270 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:01:08,436 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:01:08,786 - INFO - GRPM LLM: TROCAR=0 | INCERTO=0 | MANTER=15
+2026-03-11 15:01:08,801 - INFO - Generating embeddings for 13 rows...
+2026-03-11 15:01:08,841 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/embeddings "HTTP/1.1 200 OK"
+2026-03-11 15:01:09,938 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/embeddings "HTTP/1.1 200 OK"
+2026-03-11 15:01:20,507 - INFO - Text AI audit: 12 rows below threshold.
+2026-03-11 15:01:21,538 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:01:21,574 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:01:21,687 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:01:21,870 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:01:22,726 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:01:22,726 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:01:22,763 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:01:23,713 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:01:23,842 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:01:24,539 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:01:25,108 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:01:26,950 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:01:27,079 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_Texts.xlsx (6 rows)
+2026-03-11 15:01:27,164 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\HERMESI\Validation_Texts_HERMESI.xlsx: 3 rows
+2026-03-11 15:01:27,235 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\LUCASD\Validation_Texts_LUCASD.xlsx: 1 rows
+2026-03-11 15:01:27,315 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\VICKY\Validation_Texts_VICKY.xlsx: 2 rows
+2026-03-11 15:01:28,333 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:01:28,416 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:01:28,435 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:01:28,558 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:01:29,753 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:01:29,976 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:01:30,181 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:01:30,187 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:01:30,723 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:01:30,760 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:01:31,400 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:01:31,612 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:01:31,647 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:01:31,987 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:01:32,598 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:01:33,040 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_OBS_PreCheck.xlsx (13 rows)
+2026-03-11 15:01:33,124 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\GYEGROS\Validation_OBS_PreCheck_GYEGROS.xlsx: 2 rows
+2026-03-11 15:01:33,207 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\HERMESI\Validation_OBS_PreCheck_HERMESI.xlsx: 5 rows
+2026-03-11 15:01:33,282 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\LUCASD\Validation_OBS_PreCheck_LUCASD.xlsx: 1 rows
+2026-03-11 15:01:33,363 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Validation_OBS_PreCheck_PEDROHVB.xlsx: 2 rows
+2026-03-11 15:01:33,439 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\VICKY\Validation_OBS_PreCheck_VICKY.xlsx: 3 rows
+2026-03-11 15:01:34,510 - INFO - Cache loaded: 45 entries from cache\search_cache.json
+2026-03-11 15:01:34,512 - INFO - ReferenceValidator ready | model=perplexity/sonar | cache=cache\search_cache.json | entries=45 | expired_purged=0
+2026-03-11 15:01:36,143 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:01:36,393 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:01:36,441 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:01:36,595 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:01:36,659 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:01:39,431 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:01:42,155 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_Reference.xlsx (9 rows)
+2026-03-11 15:01:42,283 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\GYEGROS\Validation_Reference_GYEGROS.xlsx: 1 rows
+2026-03-11 15:01:42,436 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\HERMESI\Validation_Reference_HERMESI.xlsx: 1 rows
+2026-03-11 15:01:42,601 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\LUCASD\Validation_Reference_LUCASD.xlsx: 1 rows
+2026-03-11 15:01:42,784 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Validation_Reference_PEDROHVB.xlsx: 2 rows
+2026-03-11 15:01:43,090 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\VICKY\Validation_Reference_VICKY.xlsx: 4 rows
+2026-03-11 15:01:43,301 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_Images.xlsx (15 rows)
+2026-03-11 15:01:43,413 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\GYEGROS\Validation_Images_GYEGROS.xlsx: 2 rows
+2026-03-11 15:01:43,524 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\HERMESI\Validation_Images_HERMESI.xlsx: 5 rows
+2026-03-11 15:01:43,645 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\LUCASD\Validation_Images_LUCASD.xlsx: 1 rows
+2026-03-11 15:01:43,814 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Validation_Images_PEDROHVB.xlsx: 2 rows
+2026-03-11 15:01:43,977 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\VICKY\Validation_Images_VICKY.xlsx: 5 rows
+2026-03-11 15:01:44,000 - INFO - ref_obs_flag: 11 materials with reference documentation issues.
+2026-03-11 15:01:44,406 - INFO - Debug export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\DEBUG_Full.xlsx (15 rows, 104 cols)
+2026-03-11 15:01:44,474 - INFO - Dashboard FULL -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE (15 rows)
+2026-03-11 15:01:44,572 - INFO - Dashboard GYEGROS -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\GYEGROS (2 rows)
+2026-03-11 15:01:44,676 - INFO - Dashboard HERMESI -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\HERMESI (5 rows)
+2026-03-11 15:01:44,842 - INFO - Dashboard LUCASD -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\LUCASD (1 rows)
+2026-03-11 15:01:44,942 - INFO - Dashboard PEDROHVB -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB (2 rows)
+2026-03-11 15:01:45,009 - INFO - Dashboard VICKY -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\VICKY (5 rows)
+2026-03-11 15:40:03,475 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Step1-ETL.xlsx (272 rows)
+2026-03-11 15:40:03,850 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\DGOMEZ\Step1-ETL_DGOMEZ.xlsx: 24 rows
+2026-03-11 15:40:04,150 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\GYEGROS\Step1-ETL_GYEGROS.xlsx: 55 rows
+2026-03-11 15:40:04,486 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\HERMESI\Step1-ETL_HERMESI.xlsx: 80 rows
+2026-03-11 15:40:04,702 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\LUCASD\Step1-ETL_LUCASD.xlsx: 45 rows
+2026-03-11 15:40:04,927 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Step1-ETL_PEDROHVB.xlsx: 43 rows
+2026-03-11 15:40:05,077 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\VICKY\Step1-ETL_VICKY.xlsx: 25 rows
+2026-03-11 15:40:10,583 - INFO - AIModule initialized with model: google/gemini-3.1-flash-lite-preview
+2026-03-11 15:40:25,112 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:26,763 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:27,227 - INFO - GRPM LLM: TROCAR=0 | INCERTO=0 | MANTER=20
+2026-03-11 15:40:27,236 - INFO - Generating embeddings for 15 rows...
+2026-03-11 15:40:27,257 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/embeddings "HTTP/1.1 200 OK"
+2026-03-11 15:40:29,388 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/embeddings "HTTP/1.1 200 OK"
+2026-03-11 15:40:32,176 - INFO - Text AI audit: 15 rows below threshold.
+2026-03-11 15:40:33,087 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:33,127 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:33,400 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:34,371 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:34,631 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:34,933 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:35,321 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:35,370 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:35,586 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:35,643 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:35,709 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:35,926 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:35,983 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:35,986 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:36,437 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:36,610 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_Texts.xlsx (6 rows)
+2026-03-11 15:40:36,671 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\GYEGROS\Validation_Texts_GYEGROS.xlsx: 1 rows
+2026-03-11 15:40:36,738 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\HERMESI\Validation_Texts_HERMESI.xlsx: 3 rows
+2026-03-11 15:40:36,800 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\LUCASD\Validation_Texts_LUCASD.xlsx: 1 rows
+2026-03-11 15:40:36,867 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\VICKY\Validation_Texts_VICKY.xlsx: 1 rows
+2026-03-11 15:40:37,933 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:37,950 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:37,950 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:37,987 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:38,060 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:38,063 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:38,100 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:39,151 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:39,179 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:39,350 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:39,402 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:39,591 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:39,685 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:40,369 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:40,597 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:40,672 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:40,977 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:41,167 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:41,637 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:42,526 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:42,903 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_OBS_PreCheck.xlsx (15 rows)
+2026-03-11 15:40:42,985 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\DGOMEZ\Validation_OBS_PreCheck_DGOMEZ.xlsx: 1 rows
+2026-03-11 15:40:43,080 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\GYEGROS\Validation_OBS_PreCheck_GYEGROS.xlsx: 5 rows
+2026-03-11 15:40:43,169 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\HERMESI\Validation_OBS_PreCheck_HERMESI.xlsx: 4 rows
+2026-03-11 15:40:43,241 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Validation_OBS_PreCheck_PEDROHVB.xlsx: 4 rows
+2026-03-11 15:40:43,316 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\VICKY\Validation_OBS_PreCheck_VICKY.xlsx: 1 rows
+2026-03-11 15:40:44,387 - INFO - Cache loaded: 51 entries from cache\search_cache.json
+2026-03-11 15:40:44,387 - INFO - ReferenceValidator ready | model=perplexity/sonar | cache=cache\search_cache.json | entries=51 | expired_purged=0
+2026-03-11 15:40:46,078 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:46,238 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:46,339 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:46,637 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:48,137 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:49,783 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:50,450 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:52,089 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:52,683 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:53,523 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:53,642 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 15:40:57,132 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_Reference.xlsx (11 rows)
+2026-03-11 15:40:57,235 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\GYEGROS\Validation_Reference_GYEGROS.xlsx: 3 rows
+2026-03-11 15:40:57,333 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\HERMESI\Validation_Reference_HERMESI.xlsx: 2 rows
+2026-03-11 15:40:57,433 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\LUCASD\Validation_Reference_LUCASD.xlsx: 1 rows
+2026-03-11 15:40:57,549 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Validation_Reference_PEDROHVB.xlsx: 4 rows
+2026-03-11 15:40:57,649 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\VICKY\Validation_Reference_VICKY.xlsx: 1 rows
+2026-03-11 15:40:57,823 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_Images.xlsx (20 rows)
+2026-03-11 15:40:57,908 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\DGOMEZ\Validation_Images_DGOMEZ.xlsx: 2 rows
+2026-03-11 15:40:58,000 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\GYEGROS\Validation_Images_GYEGROS.xlsx: 6 rows
+2026-03-11 15:40:58,088 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\HERMESI\Validation_Images_HERMESI.xlsx: 5 rows
+2026-03-11 15:40:58,184 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\LUCASD\Validation_Images_LUCASD.xlsx: 1 rows
+2026-03-11 15:40:58,281 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Validation_Images_PEDROHVB.xlsx: 5 rows
+2026-03-11 15:40:58,350 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\VICKY\Validation_Images_VICKY.xlsx: 1 rows
+2026-03-11 15:40:58,360 - INFO - ref_obs_flag: 11 materials with reference documentation issues.
+2026-03-11 15:40:58,657 - INFO - Debug export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\DEBUG_Full.xlsx (20 rows, 104 cols)
+2026-03-11 15:40:58,808 - INFO - Dashboard FULL -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE (20 rows)
+2026-03-11 15:40:58,898 - INFO - Dashboard DGOMEZ -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\DGOMEZ (2 rows)
+2026-03-11 15:40:58,960 - INFO - Dashboard GYEGROS -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\GYEGROS (6 rows)
+2026-03-11 15:40:59,026 - INFO - Dashboard HERMESI -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\HERMESI (5 rows)
+2026-03-11 15:40:59,091 - INFO - Dashboard LUCASD -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\LUCASD (1 rows)
+2026-03-11 15:40:59,166 - INFO - Dashboard PEDROHVB -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB (5 rows)
+2026-03-11 15:40:59,222 - INFO - Dashboard VICKY -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\VICKY (1 rows)
+2026-03-11 22:37:38,706 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Step1-ETL.xlsx (272 rows)
+2026-03-11 22:37:38,846 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\DGOMEZ\Step1-ETL_DGOMEZ.xlsx: 24 rows
+2026-03-11 22:37:39,056 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\GYEGROS\Step1-ETL_GYEGROS.xlsx: 55 rows
+2026-03-11 22:37:39,334 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\HERMESI\Step1-ETL_HERMESI.xlsx: 80 rows
+2026-03-11 22:37:39,537 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\LUCASD\Step1-ETL_LUCASD.xlsx: 45 rows
+2026-03-11 22:37:39,735 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Step1-ETL_PEDROHVB.xlsx: 43 rows
+2026-03-11 22:37:39,913 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\VICKY\Step1-ETL_VICKY.xlsx: 25 rows
+2026-03-11 22:37:47,942 - INFO - AIModule initialized with model: google/gemini-3.1-flash-lite-preview
+2026-03-11 22:38:04,940 - INFO - GRPM LLM: todos os grupos estão validados pelo ML. Nada a processar.
+2026-03-11 22:38:04,950 - INFO - Generating embeddings for 7 rows...
+2026-03-11 22:38:07,352 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/embeddings "HTTP/1.1 200 OK"
+2026-03-11 22:38:09,682 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/embeddings "HTTP/1.1 200 OK"
+2026-03-11 22:38:11,638 - INFO - Text AI audit: 7 rows below threshold.
+2026-03-11 22:38:13,433 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 22:38:13,500 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 22:38:13,522 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 22:38:13,556 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 22:38:13,823 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 22:38:15,423 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 22:38:15,477 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 22:38:15,805 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_Texts.xlsx (3 rows)
+2026-03-11 22:38:15,870 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\HERMESI\Validation_Texts_HERMESI.xlsx: 3 rows
+2026-03-11 22:38:18,173 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 22:38:18,323 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 22:38:18,364 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 22:38:18,386 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 22:38:18,497 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 22:38:20,216 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 22:38:20,303 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 22:38:20,666 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 22:38:21,116 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 22:38:21,348 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 22:38:21,799 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_OBS_PreCheck.xlsx (8 rows)
+2026-03-11 22:38:21,863 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\DGOMEZ\Validation_OBS_PreCheck_DGOMEZ.xlsx: 1 rows
+2026-03-11 22:38:21,926 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\HERMESI\Validation_OBS_PreCheck_HERMESI.xlsx: 5 rows
+2026-03-11 22:38:21,994 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\LUCASD\Validation_OBS_PreCheck_LUCASD.xlsx: 1 rows
+2026-03-11 22:38:22,060 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Validation_OBS_PreCheck_PEDROHVB.xlsx: 1 rows
+2026-03-11 22:38:22,942 - INFO - Cache loaded: 62 entries from cache\search_cache.json
+2026-03-11 22:38:22,942 - INFO - ReferenceValidator ready | model=perplexity/sonar | cache=cache\search_cache.json | entries=62 | expired_purged=0
+2026-03-11 22:38:24,663 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 22:38:24,725 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 22:38:24,813 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 22:38:25,234 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-11 22:38:32,334 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_Reference.xlsx (3 rows)
+2026-03-11 22:38:32,434 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\DGOMEZ\Validation_Reference_DGOMEZ.xlsx: 1 rows
+2026-03-11 22:38:32,523 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\HERMESI\Validation_Reference_HERMESI.xlsx: 1 rows
+2026-03-11 22:38:32,623 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\VICKY\Validation_Reference_VICKY.xlsx: 1 rows
+2026-03-11 22:38:32,623 - INFO - ref_obs_flag: 7 materials with reference documentation issues.
+2026-03-11 22:38:33,141 - INFO - Debug export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\DEBUG_Full.xlsx (10 rows, 100 cols)
+2026-03-11 22:38:33,193 - INFO - Dashboard FULL -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE (10 rows)
+2026-03-11 22:38:33,256 - INFO - Dashboard DGOMEZ -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\DGOMEZ (1 rows)
+2026-03-11 22:38:33,327 - INFO - Dashboard HERMESI -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\HERMESI (5 rows)
+2026-03-11 22:38:33,450 - INFO - Dashboard LUCASD -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\LUCASD (2 rows)
+2026-03-11 22:38:33,528 - INFO - Dashboard PEDROHVB -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB (1 rows)
+2026-03-11 22:38:33,591 - INFO - Dashboard VICKY -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\VICKY (1 rows)
+2026-03-12 11:38:42,600 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Step1-ETL.xlsx (272 rows)
+2026-03-12 11:38:42,932 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\DGOMEZ\Step1-ETL_DGOMEZ.xlsx: 24 rows
+2026-03-12 11:38:43,460 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\GYEGROS\Step1-ETL_GYEGROS.xlsx: 55 rows
+2026-03-12 11:38:44,501 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\HERMESI\Step1-ETL_HERMESI.xlsx: 80 rows
+2026-03-12 11:38:45,175 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\LUCASD\Step1-ETL_LUCASD.xlsx: 45 rows
+2026-03-12 11:38:45,524 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Step1-ETL_PEDROHVB.xlsx: 43 rows
+2026-03-12 11:38:45,793 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\VICKY\Step1-ETL_VICKY.xlsx: 25 rows
+2026-03-12 11:38:53,072 - INFO - AIModule initialized with model: google/gemini-3.1-flash-lite-preview
+2026-03-12 11:39:16,897 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:39:17,223 - INFO - GRPM LLM: TROCAR=1 | INCERTO=0 | MANTER=9
+2026-03-12 11:39:17,323 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_GRPM.xlsx (1 rows)
+2026-03-12 11:39:17,424 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\LUCASD\Validation_GRPM_LUCASD.xlsx: 1 rows
+2026-03-12 11:39:17,436 - INFO - Generating embeddings for 9 rows...
+2026-03-12 11:39:17,467 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/embeddings "HTTP/1.1 200 OK"
+2026-03-12 11:39:18,418 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/embeddings "HTTP/1.1 200 OK"
+2026-03-12 11:39:20,011 - INFO - Text AI audit: 9 rows below threshold.
+2026-03-12 11:39:21,207 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:39:21,207 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:39:21,283 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:39:21,307 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:39:21,324 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:39:22,089 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:39:22,706 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:39:22,834 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:39:23,097 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:39:23,447 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_Texts.xlsx (3 rows)
+2026-03-12 11:39:23,509 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\HERMESI\Validation_Texts_HERMESI.xlsx: 2 rows
+2026-03-12 11:39:23,735 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Validation_Texts_PEDROHVB.xlsx: 1 rows
+2026-03-12 11:39:24,856 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:39:24,959 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:39:31,815 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:39:31,815 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:39:31,819 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:39:31,819 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:39:31,819 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:39:31,823 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:39:33,052 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:39:35,023 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:39:35,446 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_OBS_PreCheck.xlsx (8 rows)
+2026-03-12 11:39:35,536 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\DGOMEZ\Validation_OBS_PreCheck_DGOMEZ.xlsx: 1 rows
+2026-03-12 11:39:35,618 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\GYEGROS\Validation_OBS_PreCheck_GYEGROS.xlsx: 1 rows
+2026-03-12 11:39:35,698 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\HERMESI\Validation_OBS_PreCheck_HERMESI.xlsx: 4 rows
+2026-03-12 11:39:35,782 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Validation_OBS_PreCheck_PEDROHVB.xlsx: 2 rows
+2026-03-12 11:39:36,812 - INFO - Cache loaded: 66 entries from cache\search_cache.json
+2026-03-12 11:39:36,812 - INFO - ReferenceValidator ready | model=perplexity/sonar | cache=cache\search_cache.json | entries=66 | expired_purged=0
+2026-03-12 11:39:38,220 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:39:38,756 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:39:39,219 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:39:45,034 - WARNING - JSON decode error for 717761. Raw: ```json
+{
+  "reference_found": "MAMI 16x1/2 NPT-AG-PH",
+  "supplier": "Ermeto (CHB - Conexões Hidráulicas Brasileiras S/
+2026-03-12 11:39:45,209 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_Reference.xlsx (5 rows)
+2026-03-12 11:39:45,311 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\DGOMEZ\Validation_Reference_DGOMEZ.xlsx: 1 rows
+2026-03-12 11:39:45,404 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\GYEGROS\Validation_Reference_GYEGROS.xlsx: 1 rows
+2026-03-12 11:39:45,498 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\HERMESI\Validation_Reference_HERMESI.xlsx: 1 rows
+2026-03-12 11:39:45,613 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Validation_Reference_PEDROHVB.xlsx: 2 rows
+2026-03-12 11:39:45,619 - INFO - ref_obs_flag: 9 materials with reference documentation issues.
+2026-03-12 11:39:46,135 - INFO - Debug export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\DEBUG_Full.xlsx (10 rows, 100 cols)
+2026-03-12 11:39:46,396 - INFO - Dashboard FULL -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE (10 rows)
+2026-03-12 11:39:46,543 - INFO - Dashboard DGOMEZ -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\DGOMEZ (1 rows)
+2026-03-12 11:39:46,641 - INFO - Dashboard GYEGROS -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\GYEGROS (1 rows)
+2026-03-12 11:39:46,745 - INFO - Dashboard HERMESI -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\HERMESI (4 rows)
+2026-03-12 11:39:46,850 - INFO - Dashboard LUCASD -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\LUCASD (1 rows)
+2026-03-12 11:39:46,946 - INFO - Dashboard PEDROHVB -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB (3 rows)
+2026-03-12 11:49:12,196 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Step1-ETL.xlsx (272 rows)
+2026-03-12 11:49:12,361 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\DGOMEZ\Step1-ETL_DGOMEZ.xlsx: 24 rows
+2026-03-12 11:49:12,563 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\GYEGROS\Step1-ETL_GYEGROS.xlsx: 55 rows
+2026-03-12 11:49:12,873 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\HERMESI\Step1-ETL_HERMESI.xlsx: 80 rows
+2026-03-12 11:49:13,111 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\LUCASD\Step1-ETL_LUCASD.xlsx: 45 rows
+2026-03-12 11:49:13,306 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Step1-ETL_PEDROHVB.xlsx: 43 rows
+2026-03-12 11:49:13,463 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\VICKY\Step1-ETL_VICKY.xlsx: 25 rows
+2026-03-12 11:49:19,623 - INFO - AIModule initialized with model: google/gemini-3.1-flash-lite-preview
+2026-03-12 11:49:31,906 - INFO - GRPM LLM: todos os grupos estão validados pelo ML. Nada a processar.
+2026-03-12 11:49:31,914 - INFO - Generating embeddings for 19 rows...
+2026-03-12 11:49:32,872 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/embeddings "HTTP/1.1 200 OK"
+2026-03-12 11:49:34,410 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/embeddings "HTTP/1.1 200 OK"
+2026-03-12 11:49:37,820 - INFO - Text AI audit: 17 rows below threshold.
+2026-03-12 11:49:38,923 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:49:39,204 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:49:40,273 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:49:40,297 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:49:40,352 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:49:40,597 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:49:40,611 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:49:40,763 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:49:41,023 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:49:41,263 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:49:41,347 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:49:41,673 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:49:42,097 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:49:42,356 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:49:42,623 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:49:43,191 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:49:44,097 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:49:45,102 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_Texts.xlsx (8 rows)
+2026-03-12 11:49:45,163 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\DGOMEZ\Validation_Texts_DGOMEZ.xlsx: 1 rows
+2026-03-12 11:49:45,221 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\GYEGROS\Validation_Texts_GYEGROS.xlsx: 2 rows
+2026-03-12 11:49:45,280 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\HERMESI\Validation_Texts_HERMESI.xlsx: 3 rows
+2026-03-12 11:49:45,340 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\LUCASD\Validation_Texts_LUCASD.xlsx: 1 rows
+2026-03-12 11:49:45,404 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\VICKY\Validation_Texts_VICKY.xlsx: 1 rows
+2026-03-12 11:49:46,469 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:49:46,473 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:49:46,523 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:49:46,539 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:49:46,613 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:49:48,217 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:49:48,347 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:49:48,706 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:49:48,788 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:49:48,830 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:49:49,297 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:49:49,947 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:49:50,322 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:49:50,441 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:49:50,543 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:49:50,645 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:49:51,322 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:49:51,585 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:49:52,007 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:49:53,473 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:49:53,987 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_OBS_PreCheck.xlsx (15 rows)
+2026-03-12 11:49:54,066 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\DGOMEZ\Validation_OBS_PreCheck_DGOMEZ.xlsx: 2 rows
+2026-03-12 11:49:54,157 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\GYEGROS\Validation_OBS_PreCheck_GYEGROS.xlsx: 4 rows
+2026-03-12 11:49:54,229 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\HERMESI\Validation_OBS_PreCheck_HERMESI.xlsx: 2 rows
+2026-03-12 11:49:54,302 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\LUCASD\Validation_OBS_PreCheck_LUCASD.xlsx: 2 rows
+2026-03-12 11:49:54,368 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Validation_OBS_PreCheck_PEDROHVB.xlsx: 2 rows
+2026-03-12 11:49:54,437 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\VICKY\Validation_OBS_PreCheck_VICKY.xlsx: 3 rows
+2026-03-12 11:49:55,397 - INFO - Cache loaded: 69 entries from cache\search_cache.json
+2026-03-12 11:49:55,402 - INFO - ReferenceValidator ready | model=perplexity/sonar | cache=cache\search_cache.json | entries=69 | expired_purged=0
+2026-03-12 11:49:57,197 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:49:57,306 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:49:58,142 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:49:58,972 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:50:00,185 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:50:01,046 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:50:02,381 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:50:03,156 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:50:03,735 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:50:05,656 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:50:06,384 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:50:08,522 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:50:12,507 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_Reference.xlsx (14 rows)
+2026-03-12 11:50:12,588 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\DGOMEZ\Validation_Reference_DGOMEZ.xlsx: 1 rows
+2026-03-12 11:50:12,692 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\GYEGROS\Validation_Reference_GYEGROS.xlsx: 4 rows
+2026-03-12 11:50:12,792 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\HERMESI\Validation_Reference_HERMESI.xlsx: 2 rows
+2026-03-12 11:50:12,979 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\LUCASD\Validation_Reference_LUCASD.xlsx: 3 rows
+2026-03-12 11:50:13,071 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Validation_Reference_PEDROHVB.xlsx: 2 rows
+2026-03-12 11:50:13,163 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\VICKY\Validation_Reference_VICKY.xlsx: 2 rows
+2026-03-12 11:50:13,170 - INFO - ref_obs_flag: 11 materials with reference documentation issues.
+2026-03-12 11:50:13,473 - INFO - Debug export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\DEBUG_Full.xlsx (20 rows, 100 cols)
+2026-03-12 11:50:13,525 - INFO - Dashboard FULL -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE (20 rows)
+2026-03-12 11:50:13,601 - INFO - Dashboard DGOMEZ -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\DGOMEZ (2 rows)
+2026-03-12 11:50:13,672 - INFO - Dashboard GYEGROS -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\GYEGROS (6 rows)
+2026-03-12 11:50:13,720 - INFO - Dashboard HERMESI -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\HERMESI (3 rows)
+2026-03-12 11:50:13,769 - INFO - Dashboard LUCASD -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\LUCASD (3 rows)
+2026-03-12 11:50:13,819 - INFO - Dashboard PEDROHVB -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB (2 rows)
+2026-03-12 11:50:13,869 - INFO - Dashboard VICKY -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\VICKY (4 rows)
+2026-03-12 11:54:50,089 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Step1-ETL.xlsx (272 rows)
+2026-03-12 11:54:50,192 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\DGOMEZ\Step1-ETL_DGOMEZ.xlsx: 24 rows
+2026-03-12 11:54:50,334 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\GYEGROS\Step1-ETL_GYEGROS.xlsx: 55 rows
+2026-03-12 11:54:50,597 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\HERMESI\Step1-ETL_HERMESI.xlsx: 80 rows
+2026-03-12 11:54:50,762 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\LUCASD\Step1-ETL_LUCASD.xlsx: 45 rows
+2026-03-12 11:54:50,901 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Step1-ETL_PEDROHVB.xlsx: 43 rows
+2026-03-12 11:54:51,035 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\VICKY\Step1-ETL_VICKY.xlsx: 25 rows
+2026-03-12 11:54:55,687 - INFO - AIModule initialized with model: google/gemini-3.1-flash-lite-preview
+2026-03-12 11:54:55,706 - INFO - Lead time inválido em 1 materiais.
+2026-03-12 11:54:55,769 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_LeadTime.xlsx (1 rows)
+2026-03-12 11:54:55,828 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\GYEGROS\Validation_LeadTime_GYEGROS.xlsx: 1 rows
+2026-03-12 11:55:11,592 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:12,841 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:12,946 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:13,009 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:13,297 - INFO - GRPM LLM: TROCAR=3 | INCERTO=0 | MANTER=27
+2026-03-12 11:55:13,372 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_GRPM.xlsx (3 rows)
+2026-03-12 11:55:13,438 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\LUCASD\Validation_GRPM_LUCASD.xlsx: 2 rows
+2026-03-12 11:55:13,498 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Validation_GRPM_PEDROHVB.xlsx: 1 rows
+2026-03-12 11:55:13,506 - INFO - Generating embeddings for 17 rows...
+2026-03-12 11:55:13,525 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/embeddings "HTTP/1.1 200 OK"
+2026-03-12 11:55:14,769 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/embeddings "HTTP/1.1 200 OK"
+2026-03-12 11:55:16,034 - INFO - Text AI audit: 16 rows below threshold.
+2026-03-12 11:55:17,027 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:17,052 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:17,064 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:17,216 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:17,632 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:18,531 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:18,603 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:18,819 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:19,423 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:19,423 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:19,542 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:20,247 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:20,547 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:21,056 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:21,242 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:21,523 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:22,059 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_Texts.xlsx (8 rows)
+2026-03-12 11:55:22,121 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\GYEGROS\Validation_Texts_GYEGROS.xlsx: 2 rows
+2026-03-12 11:55:22,182 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\HERMESI\Validation_Texts_HERMESI.xlsx: 3 rows
+2026-03-12 11:55:22,237 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\LUCASD\Validation_Texts_LUCASD.xlsx: 2 rows
+2026-03-12 11:55:22,301 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\VICKY\Validation_Texts_VICKY.xlsx: 1 rows
+2026-03-12 11:55:23,385 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:23,392 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:23,406 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:23,473 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:23,534 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:23,712 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:24,834 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:24,849 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:24,881 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:24,934 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:24,947 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:24,949 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:25,297 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:26,334 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:26,735 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:26,735 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:27,447 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:27,642 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:27,815 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:27,863 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:28,161 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:28,323 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:28,977 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:29,142 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:29,742 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:30,042 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:30,134 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:30,225 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:31,073 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:31,122 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:31,467 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_OBS_PreCheck.xlsx (22 rows)
+2026-03-12 11:55:31,532 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\DGOMEZ\Validation_OBS_PreCheck_DGOMEZ.xlsx: 1 rows
+2026-03-12 11:55:31,594 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\GYEGROS\Validation_OBS_PreCheck_GYEGROS.xlsx: 7 rows
+2026-03-12 11:55:31,660 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\HERMESI\Validation_OBS_PreCheck_HERMESI.xlsx: 4 rows
+2026-03-12 11:55:31,723 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\LUCASD\Validation_OBS_PreCheck_LUCASD.xlsx: 5 rows
+2026-03-12 11:55:31,792 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Validation_OBS_PreCheck_PEDROHVB.xlsx: 3 rows
+2026-03-12 11:55:31,858 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\VICKY\Validation_OBS_PreCheck_VICKY.xlsx: 2 rows
+2026-03-12 11:55:32,684 - INFO - Cache loaded: 81 entries from cache\search_cache.json
+2026-03-12 11:55:32,684 - INFO - ReferenceValidator ready | model=perplexity/sonar | cache=cache\search_cache.json | entries=81 | expired_purged=0
+2026-03-12 11:55:34,123 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:34,219 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:34,242 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:34,246 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:35,083 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:37,948 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:37,961 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:38,011 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:39,919 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:41,321 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:42,006 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:42,419 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:46,028 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:47,171 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-12 11:55:50,456 - INFO - Full export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\Validation_Reference.xlsx (17 rows)
+2026-03-12 11:55:50,563 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\GYEGROS\Validation_Reference_GYEGROS.xlsx: 6 rows
+2026-03-12 11:55:50,656 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\HERMESI\Validation_Reference_HERMESI.xlsx: 1 rows
+2026-03-12 11:55:50,769 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\LUCASD\Validation_Reference_LUCASD.xlsx: 5 rows
+2026-03-12 11:55:50,863 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB\Validation_Reference_PEDROHVB.xlsx: 3 rows
+2026-03-12 11:55:50,988 - INFO -   -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\VICKY\Validation_Reference_VICKY.xlsx: 2 rows
+2026-03-12 11:55:51,005 - INFO - ref_obs_flag: 19 materials with reference documentation issues.
+2026-03-12 11:55:51,342 - INFO - Debug export -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE\DEBUG_Full.xlsx (30 rows, 100 cols)
+2026-03-12 11:55:51,388 - INFO - Dashboard FULL -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\MTSE (30 rows)
+2026-03-12 11:55:51,430 - INFO - Dashboard DGOMEZ -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\DGOMEZ (3 rows)
+2026-03-12 11:55:51,479 - INFO - Dashboard GYEGROS -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\GYEGROS (9 rows)
+2026-03-12 11:55:51,534 - INFO - Dashboard HERMESI -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\HERMESI (4 rows)
+2026-03-12 11:55:51,597 - INFO - Dashboard LUCASD -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\LUCASD (6 rows)
+2026-03-12 11:55:51,647 - INFO - Dashboard PEDROHVB -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\PEDROHVB (5 rows)
+2026-03-12 11:55:51,697 - INFO - Dashboard VICKY -> C:\Users\pedro\Desktop\Projetos\AUTOMACAO_REQ_v2\data\2026-03\output\VICKY (3 rows)

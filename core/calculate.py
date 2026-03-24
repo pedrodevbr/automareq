@@ -1,0 +1,380 @@
+import numpy as np
+import pandas as pd
+import datetime as dt
+import math
+import logging
+from typing import List, Any
+
+from utils.export_module import export_by_responsavel
+
+import os
+
+# Configuração de Logger
+logger = logging.getLogger(__name__)
+
+from config.config import (DEMAND_WINDOW, BAIXO_VALOR, ALTO_VOLUME, VALOR_UN_ALTO, 
+                    ANOS_SEM_OC, CV_THRESHOLD, TMD_THRESHOLD, OUTPUT_FOLDER,CUSTO_FIXO_PEDIDO, TAXA_MANUTENCAO)
+
+
+def detect_outliers_row(row_values: np.ndarray) -> List[float]:
+    """
+    Detecta outliers em um array de valores positivos usando IQR.
+    Otimizado para receber um numpy array direto.
+    """
+    try:
+        # Filtra apenas positivos
+        consumo_pos = row_values[row_values > 0]
+        
+        if consumo_pos.size == 0:
+            return [] # Retorna lista vazia se não houver consumo positivo
+            
+        # Ordena decrescente (comportamento original mantido, embora IQR não exija ordem específica)
+        consumo_pos = np.sort(consumo_pos)[::-1]
+        
+        q1 = np.percentile(consumo_pos, 25)
+        q3 = np.percentile(consumo_pos, 75)
+        iqr = q3 - q1
+        
+        if iqr == 0:
+            return []
+            
+        threshold = q3 + 1.5 * iqr
+        outliers = consumo_pos[consumo_pos > threshold]
+        
+        return outliers.tolist()
+    except Exception:
+        return []
+
+def calculate_pr_row(row_values: np.ndarray) -> float:
+    """Calcula Ponto de Reabastecimento (PR) baseado nos valores históricos limpos de outliers."""
+    try:
+        consumo_pos = row_values[row_values > 0]
+        if consumo_pos.size == 0:
+            return 1.0
+            
+        # Ordena decrescente
+        consumo_pos = np.sort(consumo_pos)[::-1]
+        
+        # Recalcula outliers internamente para consistência ou usa lógica simplificada
+        q1 = np.percentile(consumo_pos, 25)
+        q3 = np.percentile(consumo_pos, 75)
+        iqr = q3 - q1
+        
+        if iqr > 0:
+            threshold = q3 + 1.5 * iqr
+            consumo_filtered = consumo_pos[consumo_pos <= threshold]
+        else:
+            consumo_filtered = consumo_pos
+
+        if consumo_filtered.size == 0:
+            return 1.0
+        elif consumo_filtered.size == 1:
+            return round(float(consumo_filtered[0]), 1)
+        else:
+            # Pega o segundo maior valor (comportamento original iloc[1])
+            return round(float(consumo_filtered[1]), 1)
+    except Exception:
+        return 1.0
+
+def decision_tree_row(row: pd.Series) -> str:
+    """
+    Lógica de decisão de política. Mantida como row-wise devido à complexidade condicional.
+    """
+    try:
+        # Extração segura com defaults tipados
+        cls = row.get('Classificacao', 'Indefinido')
+        abc = row.get('Classificacao_ABC', 'C')
+        adicional = row.get('Adicional_Lote_Obrigatorio', '')
+        grupo = row.get('Grupo_MRP', '')
+        planejador = str(row.get('Planejador_MRP', ''))
+        
+        # Valores numéricos já devem estar tratados no passo anterior (fillna(0))
+        volume_ordem = row.get('Volume_Ordem_Planejada', 0)
+        preco = row.get('Preco_Unitario', 0)
+        criticidade = row.get('Criticidade', 0)
+        quantidade_lmr = row.get('Quantidade_LMR', 0)
+        tmd = row.get('TMD', 0)
+        cv = row.get('CV', 0)
+
+        politica = 'ZM' # Default
+
+        if cls == 'Suave':
+            if abc in ['A', 'B']:
+                if adicional == 'X':
+                    politica = 'ZL'
+                else:
+                    politica = 'ZL' if volume_ordem > ALTO_VOLUME else 'ZP'
+            else:
+                politica = 'ZO' if grupo not in ['ZSTK', 'SMIT', 'AD', 'ANA', 'FRAC'] else 'ZP'
+        
+        elif cls == 'Intermitente':
+            politica = 'ZM'
+            
+        elif cls in ['Erratico', 'Errático']:
+            politica = 'ZE' if preco > VALOR_UN_ALTO else 'ZM'
+            
+        elif cls in ['Esporádico', 'Esporadico']:
+            if (criticidade > 0) or ('S' in planejador) or (quantidade_lmr > 0):
+                politica = 'ZE' if preco > VALOR_UN_ALTO else 'ZM'
+            elif (tmd > 6) and (cv > 3):
+                politica = 'ZD'
+            else:
+                politica = 'ZM'
+                
+        return politica
+    except Exception:
+        return 'ZM'
+
+def run_calculations(df_input: pd.DataFrame) -> pd.DataFrame:
+    df = df_input.copy()
+    
+    # ---------------------------------------------------------
+    # 1. PREPARAÇÃO DOS DADOS (Conversão em massa)
+    # ---------------------------------------------------------
+    cols_to_numeric = [
+        'Preco_Unitario', 'Criticidade', 'Quantidade_LMR', 'Volume_Ordem_Planejada',
+        'Prazo_Entrega_Previsto', 'Valor_Total_Ordem', 'PR_Calculado', 
+        'Volume', 'Quantidade_Ordem'
+    ]
+    for col in cols_to_numeric:
+        if col in df.columns:
+            df[col] = pd.to_numeric(df[col], errors='coerce').fillna(0)
+
+    # Identificar colunas LTD
+    ltd_cols = [col for col in df.columns if "LTD_" in col][:DEMAND_WINDOW]
+    # Cria subset numérico apenas das colunas LTD para cálculos vetorizados
+    df_ltd = df[ltd_cols].apply(pd.to_numeric, errors='coerce').fillna(0)
+
+    # ---------------------------------------------------------
+    # 2. CÁLCULOS ESTATÍSTICOS VETORIZADOS (TMD, CV)
+    # ---------------------------------------------------------
+    # TMD: Total Periods / Non-Zero Periods
+    count_total = df_ltd.shape[1] # Janela fixa ou df_ltd.count(axis=1) se NaN fosse possível
+    count_nonzero = (df_ltd != 0).sum(axis=1)
+    
+    df['TMD'] = np.where(
+        (count_nonzero != 0) & (count_total > 1),
+        round(count_total / count_nonzero, 2),
+        -1
+    )
+
+    # CV: Std Dev / Mean
+    std_val = df_ltd.std(axis=1, ddof=0)
+    mean_val = df_ltd.mean(axis=1)
+    
+    df['CV'] = np.where(
+        (mean_val != 0) & (count_total > 1),
+        round(std_val / mean_val, 2),
+        -1
+    )
+
+    # ---------------------------------------------------------
+    # 3. CLASSIFICAÇÃO VETORIZADA
+    # ---------------------------------------------------------
+    conditions = [
+        (df['TMD'] == -1) | (df['CV'] == -1),
+        (df['CV'] > CV_THRESHOLD) & (df['TMD'] > TMD_THRESHOLD),
+        (df['CV'] > CV_THRESHOLD) & (df['TMD'] < TMD_THRESHOLD),
+        (df['CV'] < CV_THRESHOLD) & (df['TMD'] > TMD_THRESHOLD),
+        (df['CV'] < CV_THRESHOLD) & (df['TMD'] < TMD_THRESHOLD)
+    ]
+    choices = ['Sem classificação', 'Esporádico', 'Intermitente', 'Errático', 'Suave']
+    df['Classificacao'] = np.select(conditions, choices, default='Outro')
+
+    # ---------------------------------------------------------
+    # 4. OUTLIERS E PR (Row-wise otimizado)
+    # ---------------------------------------------------------
+    # Convertendo para numpy array para iteração mais rápida
+    ltd_values = df_ltd.values
+    
+    # List comprehension costuma ser mais rápido que df.apply para operações complexas de lista
+    df['Outliers'] = [detect_outliers_row(row) for row in ltd_values]
+    df['PR_Calculado'] = [calculate_pr_row(row) for row in ltd_values]
+
+    # ---------------------------------------------------------
+    # 5. DEMANDA ANUAL (Vetorizado)
+    # ---------------------------------------------------------
+    lt_days = df['Prazo_Entrega_Previsto'].astype(int)
+    # Regra: LT deve ser múltiplo de 30 e > 0
+    valid_lt = (lt_days > 0) & (lt_days % 30 == 0)
+    
+    # Periods = DEMAND_WINDOW * 360 / lt
+    periods = (DEMAND_WINDOW * 360 / lt_days.replace(0, 1)).astype(int).clip(lower=1)
+    
+    # Como o slice varia por linha, precisamos de uma abordagem híbrida ou aproximação.
+    # Para manter a lógica exata de "slice_len", usaremos apply apenas na soma se necessário,
+    # mas uma aproximação segura é calcular a média total se periods >= DEMAND_WINDOW.
+    
+    def get_demand_slice(idx, p_val):
+        # Helper interno para slicing variável
+        row_vals = df_ltd.iloc[idx].values
+        slice_len = min(p_val, len(row_vals))
+        if slice_len <= 0: return 0
+        return row_vals[:slice_len].sum()
+
+    # Se performance for crítica aqui, pode-se otimizar mais, mas isso preserva a lógica exata original
+    sums = [get_demand_slice(i, p) for i, p in enumerate(periods)]
+    
+    df['Demanda_Anual'] = np.where(
+        valid_lt,
+        np.ceil(np.array(sums) / DEMAND_WINDOW),
+        0
+    )
+
+    # ---------------------------------------------------------
+    # 6. POLÍTICA SUGERIDA (Decision Tree)
+    # ---------------------------------------------------------
+    # Como a árvore é complexa, usamos apply, mas garantimos que os inputs estão limpos
+    df['Politica_Sugerida'] = df.apply(decision_tree_row, axis=1)
+
+    # ---------------------------------------------------------
+    # 7. VALOR ATUALIZADO E DATAS (Vetorizado)
+    # ---------------------------------------------------------
+    now = pd.Timestamp.now()
+    
+    # Conversão segura de datas
+    df['Data_Ultimo_Pedido'] = pd.to_datetime(df['Data_Ultimo_Pedido'], errors='coerce')
+    df['Data_Abertura'] = pd.to_datetime(df['Data_Abertura'], errors='coerce')
+    
+    # Anos Sem OC Check
+    days_since_pedido = (now - df['Data_Ultimo_Pedido']).dt.days
+    df['Valor_Atualizado'] = ~ (days_since_pedido > (ANOS_SEM_OC * 360))
+    df['Valor_Atualizado'] = df['Valor_Atualizado'].fillna(False) # Se Data for NaT, considera antigo? Original logic says 'True' for exceptions, let's match logic.
+    # Correção lógica original: se last is None return False.
+    df.loc[df['Data_Ultimo_Pedido'].isna(), 'Valor_Atualizado'] = False
+
+    # Dias em OP
+    df['Dias_Em_OP'] = (now - df['Data_Abertura']).dt.days.fillna(-1).clip(lower=0)
+    
+    # Anos Ultima Compra
+    df['Anos_Ultima_Compra'] = round(days_since_pedido / 365.25, 1).fillna(-1)
+
+    # ---------------------------------------------------------
+    # 8. CÁLCULOS FINAIS (Max via Lote Econômico de Compra - LEC)
+    # ---------------------------------------------------------
+    
+    # --- PREPARAÇÃO DAS VARIÁVEIS ---
+    demanda = df['Demanda_Anual'].fillna(0)
+    pr = df['PR_Calculado'].fillna(0)
+    # Garante que preço não seja zero para não dividir por zero na fórmula
+    preco = df['Preco_Unitario'].fillna(0).clip(lower=0.01) 
+    
+    # --- CÁLCULO DO CUSTO DE MANUTENÇÃO (H) ---
+    # H = Preço Unitário * Taxa de Manutenção Anual
+    custo_manutencao = preco * TAXA_MANUTENCAO
+    
+    # --- FÓRMULA DO LEC (EOQ) ---
+    # LEC = Sqrt( (2 * Demanda * Custo_Pedido) / Custo_Manutencao )
+    numerador = 2 * demanda * CUSTO_FIXO_PEDIDO
+    
+    # np.sqrt aplica a raiz quadrada vetorizada
+    # np.divide trata a divisão (embora tenhamos tratado o preço, é boa prática)
+    lec_calculado = np.sqrt(numerador / custo_manutencao)
+    
+    # --- REGRAS DE ARREDONDAMENTO E LIMITES ---
+    # O Lote não pode ser menor que 1 se houver demanda
+    lec_final = np.where(demanda > 0, np.ceil(lec_calculado), 0)
+    
+    # Se o LEC der muito baixo (ex: itens muito baratos sugerindo lotes gigantes),
+    # ou muito alto, você pode colocar travas aqui. 
+    # Por padrão, vamos apenas garantir que seja pelo menos igual a uma demanda mensal mínima se > 0.
+    
+    # --- CÁLCULO DO MÁXIMO ---
+    # MAX = Ponto de Reabastecimento + Lote Econômico
+    df['MAX_Calculado'] = pr + lec_final
+
+    # Fallback: Se o cálculo resultar em 0 (item sem demanda histórica), 
+    # mantém regra de segurança simples (2x PR) ou zera.
+    df['MAX_Calculado'] = np.where(
+        df['MAX_Calculado'] == 0, 
+        pr * 2, 
+        df['MAX_Calculado']
+    )
+
+    # Calculo da OP com Max calculado
+
+    df['Quantidade_OP_Calculada'] = df['MAX_Calculado'] - df['Saldo_Virtual']
+
+    # Volume OP
+    df['Volume_OP'] = df['Volume'] * df['Quantidade_Ordem']
+
+    # Nível de Serviço
+    # 'S' in Planejador -> 0.98, 'U' -> 0.95, else 0.95
+    p_mrp = df['Planejador_MRP'].astype(str).fillna('')
+    df['Nivel_Servico'] = np.where(p_mrp.str.contains('S'), 0.98, 0.95)
+
+    # Valor Tributado
+    # Isento se Planejador startswith 'S' OR (Planejador in [U13, U18] AND Grupo startswith prefixos)
+    prefixes = ('0201', '2901', '2803')
+    g_merc = df['Grupo_Mercadoria'].astype(str).fillna('')
+    
+    cond_s = p_mrp.str.startswith('S')
+    cond_u = p_mrp.isin(['U13', 'U18'])
+    cond_grp = g_merc.str.startswith(prefixes)
+    
+    df['Valor_Tributado'] = np.where(cond_s | (cond_u & cond_grp), 'Isento', 'Tributado')
+
+    # ---------------------------------------------------------
+    # 9. ANÁLISE DE TEXTO (Pós Análise)
+    # ---------------------------------------------------------
+    df['pos_analise'] = ''
+    df['Compras_Sustentaveis'] = False
+    df['Desenho_Tecnico'] = False
+    df['Especificacoes'] = False
+    
+    txt_obs = df['Texto_Observacao_PT'].astype(str).str.lower().fillna('')
+    
+    # Máscaras booleanas
+    mask_sust = txt_obs.str.contains('sustent', regex=False)
+    mask_des = txt_obs.str.contains('desenh', regex=False)
+    mask_esp = txt_obs.str.contains('especifica', regex=False)
+    
+    # Atribuição vetorizada
+    df.loc[mask_sust, 'Compras_Sustentaveis'] = True
+    df.loc[mask_sust, 'pos_analise'] += '| Anexar requisitos de Compras sustentaveis\n'
+    
+    df.loc[mask_des, 'Desenho_Tecnico'] = True
+    df.loc[mask_des, 'pos_analise'] += '| Anexar desenho tecnico\n'
+    
+    df.loc[mask_esp, 'Especificacoes'] = True
+    df.loc[mask_esp, 'pos_analise'] += '| Anexar especificações\n'
+
+    # ---------------------------------------------------------
+    # 10. FORMATAÇÃO FINAL E EXPORTAÇÃO
+    # ---------------------------------------------------------
+    df['Politica_Atual'] = df.get('Tipo_MRP', 'NAO IDENTIFICADA')
+    df['PR_Atual'] = df.get('Ponto_Reabastecimento', 0)
+    df['MAX_Atual'] = df.get('Estoque_Maximo', 0)
+
+    # Colunas vazias para preenchimento manual/IA posterior
+    empty_cols = [
+        'Analise_AI', 'Quantidade_OP_AI', 'PR_AI', 'MAX_AI', 'Politica_AI', 'Comentario',
+        'Referencia_Encontrada', 'Atende_Descritivo', 'Disponibilidade_Mercado',
+        'Preco_Mercado', 'Link_Produto', 'Erro',
+        'preco_estimado', 'disponibilidade', 'fornecedor_principal', 
+        'url_fonte', 'analise_confianca', 'moeda', 'produto_identificado'
+    ]
+    
+    # Maneira eficiente de adicionar colunas vazias
+    df = df.reindex(columns=df.columns.tolist() + empty_cols)
+    df[empty_cols] = ''
+
+    colunas_organizadas = [
+        'Codigo_Material', 'Texto_Breve_Material', 'Grupo_Mercadoria', 'Grupo_Calculado', 'Setor_Atividade', 'Numero_Peca_Fabricante', 'Classificacao_ABC', 'Criticidade',
+        'Planejador_MRP', 'Grupo_MRP', 'Politica_Atual', 'PR_Atual', 'MAX_Atual', 'Politica_Sugerida', 'PR_Calculado', 'MAX_Calculado', 'Estoque_Seguranca', 'Nivel_Servico',
+        'Estoque_Total', 'Saldo_Virtual', 'Preco_Unitario', 'Valor Estoque', 'Valor_Atualizado', 'Valor_Tributado',
+        'Consumo_Medio_Mensal', 'Demanda_Mensal', 'Demanda_Programada', 'Demanda_Anual', 'Perfil_Demanda', 'TMD', 'CV', 'Classificacao', 'Outliers', 'Data_Ultimo_Consumo', 'Quantidade_201_12m',
+        'Data_Ultimo_Pedido', 'Anos_Ultima_Compra', 'Responsavel', 'Quantidade_Ordem', 'Valor_Total_Ordem',
+        'Prazo_Entrega_Previsto', 'Dias_Em_OP', 
+        'Volume', 'Unidade de volume', 'Volume_OP', 'Adicional_Lote_Obrigatorio',
+        'Text_Analysis', 'pos_analise', 'RTP1', 'RTP2', 'RTP3', 'RTP6', 'Quantidade_LMR',
+        'Texto_PT', 'Texto_ES', 'Texto_Observacao_PT', 'Texto_Observacao_ES', 'Texto_Qualidade_Material_PT', 'Texto_Qualidade_Material_ES', 'Texto_Dados_Basicos_PT', 'Texto_Dados_Basicos_ES', 'Texto REF LMR',
+        *ltd_cols
+    ]
+    
+    # Filtra apenas colunas que existem
+    final_cols = [c for c in colunas_organizadas if c in df.columns]
+    
+
+        
+    return df

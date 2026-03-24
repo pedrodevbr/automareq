@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "pipeline-principal",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["../main.py"],
+      "port": 0
+    },
+    {
+      "name": "sender-email",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["../sender.py"],
+      "port": 0
+    }
+  ]
+}

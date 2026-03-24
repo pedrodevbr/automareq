@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls \"C:\\\\Users\\\\pedro\\\\.claude\\\\projects\\\\C--Users-pedro-Desktop-Projetos-AUTOMACAO-REQ-v2-services\\\\memory\"\" 2>/dev/null || echo \"No memory dir \")",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(python -c \"from core.validate import run_validations; print\\(''validate OK''\\)\")",
+      "Bash(python -c \"from core.analysis import run_analysis; print\\(''analysis OK''\\)\")",
+      "Bash(python -c \"from services.search_service import ReferenceValidator; print\\(''search OK''\\)\")",
+      "Bash(python main.py)"
+    ]
+  }
+}

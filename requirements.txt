@@ -1,0 +1,9 @@
+# SAP Procurement Agent — Python dependencies
+# Install with: pip install -r requirements.txt
+
+openai>=1.30.0             # OpenRouter uses the OpenAI-compatible API
+pandas>=2.0.0              # Excel/CSV reading
+openpyxl>=3.1.0            # Excel output with formatting
+requests>=2.31.0           # URL fetching for product pages
+beautifulsoup4>=4.12.0     # HTML parsing for product pages
+duckduckgo-search>=6.0.0   # Web search (no API key needed)
