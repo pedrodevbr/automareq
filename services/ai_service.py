@@ -1,22 +1,30 @@
-import os
-import logging
+"""
+ai_service.py — AI-powered stock analysis module.
+
+Uses LLMRunner for OpenRouter client management. Provides:
+  - MaterialAnalysis: Pydantic schema for structured AI output
+  - AIModule: batch analysis of materials with pre-checks and parallel execution
+"""
+
+from __future__ import annotations
+
 import json
-import pandas as pd
-from openai import OpenAI
-from dotenv import load_dotenv
-from concurrent.futures import ThreadPoolExecutor
-from tenacity import retry, stop_after_attempt, wait_exponential
-from tqdm import tqdm
-from pydantic import BaseModel, Field
+import logging
 from typing import Optional
 
-# Import config
-from config.config import ANALYSIS_COLUMNS, SYSTEM_PROMPT, USER_PROMPT_TEMPLATE
+import pandas as pd
+from pydantic import BaseModel, Field
+from tenacity import retry, stop_after_attempt, wait_exponential
 
-load_dotenv("./config/.env")
+from config.sources import ANALYSIS_COLUMNS
+from config.prompts import SYSTEM_PROMPT, USER_PROMPT_TEMPLATE
+from core.validators._base import LLMRunner
+
 logger = logging.getLogger(__name__)
 
-# --- MODELO DE DADOS (Schema Rígido) ---
+
+# --- Pydantic schema for structured AI output ---
+
 class MaterialAnalysis(BaseModel):
     Analise_AI: str = Field(..., description="Resumo da decisão: 'REPOR', 'NAO_REPOR', 'SEM_CONSUMO', 'ANALISE_MANUAL', etc.")
     Quantidade_OP_AI: Optional[float] = Field(None, description="Quantidade sugerida de compra (apenas números)")
@@ -25,149 +33,120 @@ class MaterialAnalysis(BaseModel):
     Politica_AI: Optional[str] = Field(None, description="Política de estoque sugerida (ex: ZS, ES, ZD)")
     Comentario: str = Field(..., description="Explicação detalhada e técnica da decisão tomada e recomendações")
 
+
 class AIModule:
     def __init__(self, model_name=None):
-        self.api_key = os.getenv("OPENROUTER_API_KEY")
-        if not self.api_key:
-            raise ValueError("OPENROUTER_API_KEY not found in .env file.")
+        self.model_name = model_name or "google/gemini-2.0-flash-001"
+        logger.info("AIModule initialized with model: %s", self.model_name)
 
-        self.model_name = model_name or os.getenv("DEFAULT_LLM_MODEL", "google/gemini-2.0-flash-001")
-        
-        # Cliente OpenAI apontando para OpenRouter
-        self.client = OpenAI(
-            base_url="https://openrouter.ai/api/v1",
-            api_key=self.api_key,
-        )
-        logger.info(f"AIModule initialized with model: {self.model_name}")
-
-    def format_row(self, row):
-        """Formata uma linha do DataFrame para o prompt de texto."""
+    def format_row(self, row) -> str:
+        """Format a row (Series or dict) for the analysis prompt."""
         lines = []
         for k in ANALYSIS_COLUMNS:
             v = row.get(k)
-            if pd.notna(v) and v != '':
+            if pd.notna(v) and v != "":
                 lines.append(f"{k}: {v}")
         return "\n".join(lines)
 
     @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=2, max=10))
     def analyze_material_raw(self, row) -> dict:
-        """
-        Analisa um único material e retorna um dicionário validado.
-        """
-        material = row.get('Codigo_Material')
+        """Analyze a single material and return a validated dict."""
+        material = row.get("Codigo_Material")
 
-        # Validação Rápida de Pré-requisitos
-        if pd.isna(row.get('LTD_1')) or row['LTD_1'] == '':
+        # Pre-check: new item without history
+        if pd.isna(row.get("LTD_1")) or row.get("LTD_1") == "":
             return {
-                'Analise_AI': 'REPOR', 
-                'Quantidade_OP_AI': None,
-                'PR_AI': None,
-                'MAX_AI': None,
-                'Politica_AI': None,
-                'Comentario': 'Codigo novo - LTD_1 vazio ou inválido (sem histórico recente).'
+                "Analise_AI": "REPOR",
+                "Quantidade_OP_AI": None,
+                "PR_AI": None,
+                "MAX_AI": None,
+                "Politica_AI": None,
+                "Comentario": "Codigo novo - LTD_1 vazio ou inválido (sem histórico recente).",
             }
-        
-        ltd_cols = [c for c in row.index if str(c).startswith("LTD_")]
-        ltd_vals = pd.to_numeric(row[ltd_cols], errors="coerce")
-        
-        # 1. Drop NaN (ignora valores nulos)
-        # 2. Verifica se o que sobrou é igual a 0
-        # 3. .all() com parenteses para retornar True/False
-        all_zero = ltd_vals.dropna().eq(0).all()
 
-        #se todos os consumos sao 0
-        if all_zero:
+        # Pre-check: all consumption zero
+        ltd_keys = [c for c in (row.index if hasattr(row, "index") else row.keys()) if str(c).startswith("LTD_")]
+        ltd_vals = pd.to_numeric(pd.Series({k: row.get(k) for k in ltd_keys}), errors="coerce")
+        if ltd_vals.dropna().eq(0).all():
             return {
-                'Analise_AI': 'VERIFICAR', 
-                'Quantidade_OP_AI': None,
-                'PR_AI': None,
-                'MAX_AI': None,
-                'Politica_AI': None,
-                'Comentario': 'Codigo velho - Todos os consumos zero.'
+                "Analise_AI": "VERIFICAR",
+                "Quantidade_OP_AI": None,
+                "PR_AI": None,
+                "MAX_AI": None,
+                "Politica_AI": None,
+                "Comentario": "Codigo velho - Todos os consumos zero.",
             }
 
         prompt = USER_PROMPT_TEMPLATE.format(material_data=self.format_row(row))
-        
+
         try:
-            # Chamada com JSON Schema (Garante estrutura)
-            response = self.client.chat.completions.create(
+            response = LLMRunner.client().chat.completions.create(
                 model=self.model_name,
                 messages=[
                     {"role": "system", "content": SYSTEM_PROMPT},
-                    {"role": "user", "content": prompt}
+                    {"role": "user", "content": prompt},
                 ],
-                # Força resposta JSON estrita baseada no modelo Pydantic
                 response_format={
                     "type": "json_schema",
                     "json_schema": {
                         "name": "material_analysis",
-                        "schema": MaterialAnalysis.model_json_schema()
-                    }
+                        "schema": MaterialAnalysis.model_json_schema(),
+                    },
                 },
                 extra_headers={
-                    "HTTP-Referer": "https://localhost", 
-                    "X-Title": "StockAnalyzer"
+                    "HTTP-Referer": "https://localhost",
+                    "X-Title": "StockAnalyzer",
                 },
-                temperature=0.1
+                temperature=0.1,
             )
-            
+
             content = response.choices[0].message.content
-            
-            # Parse e Validação
             parsed_data = json.loads(content)
             validated = MaterialAnalysis(**parsed_data)
-            
-            # Retorna como dict para o Pandas
             return validated.model_dump()
 
         except Exception as e:
-            logger.error(f"Erro AI para material {material}: {e}")
-            raise e 
+            logger.error("Erro AI para material %s: %s", material, e)
+            raise
 
     def _safe_analyze_wrapper(self, args):
-        """Wrapper interno para passar (index, row) no ThreadPool."""
+        """Wrapper for ThreadPool: (index, row) -> (index, result)."""
         index, row = args
         try:
             result = self.analyze_material_raw(row)
             return index, result
         except Exception as e:
-            # Em caso de erro fatal na thread, retorna erro estruturado
-            error_res = {
-                'Analise_AI': 'ERRO_API',
-                'Comentario': f"Falha técnica: {str(e)}"
+            return index, {
+                "Analise_AI": "ERRO_API",
+                "Comentario": f"Falha técnica: {str(e)}",
             }
-            return index, error_res
 
-    def analyze_batch(self, df: pd.DataFrame, max_workers=3) -> pd.DataFrame:
-        """
-        Processa um DataFrame em lote (paralelo) e retorna um DataFrame 
-        com as colunas de resultado, alinhado pelo índice original.
-        """
+    def analyze_batch(self, df: pd.DataFrame, max_workers: int = 3) -> pd.DataFrame:
+        """Process a DataFrame in parallel and return results aligned by index."""
         if df.empty:
             return pd.DataFrame()
-            
-        print(f"🚀 Iniciando IA ({self.model_name}) para {len(df)} itens em {max_workers} threads...")
-        
-        # Prepara lista de (index, row) para manter rastreabilidade
+
+        from concurrent.futures import ThreadPoolExecutor
+        from tqdm import tqdm
+
+        print(f"   Iniciando IA ({self.model_name}) para {len(df)} itens em {max_workers} threads...")
+
         items_to_process = list(df.iterrows())
         results_map = {}
-        
+
         with ThreadPoolExecutor(max_workers=max_workers) as executor:
-            # Dispara tarefas
-            futures = list(tqdm(
-                executor.map(self._safe_analyze_wrapper, items_to_process), 
-                total=len(df), 
-                desc="Processando IA"
-            ))
-            
-            # Coleta resultados
+            futures = list(
+                tqdm(
+                    executor.map(self._safe_analyze_wrapper, items_to_process),
+                    total=len(df),
+                    desc="Processando IA",
+                )
+            )
             for idx, data in futures:
                 results_map[idx] = data
 
-        # Reconstrói DataFrame usando o índice original (orient='index')
-        df_results = pd.DataFrame.from_dict(results_map, orient='index')
-        
-        # Garante que todas as colunas do schema existam (preenche com None se faltar)
+        df_results = pd.DataFrame.from_dict(results_map, orient="index")
+
         for field in MaterialAnalysis.model_fields.keys():
             if field not in df_results.columns:
                 df_results[field] = None
@@ -175,21 +154,14 @@ class AIModule:
         return df_results
 
     @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=4, max=10))
-    def simple_chat(self, system_message, user_message):
-        """
-        Generic method for text-based tasks (translations, comparisons).
-        Returns the raw string response (not JSON).
-        """
+    def simple_chat(self, system_message: str, user_message: str) -> str:
+        """Generic text chat. Returns raw string response."""
         try:
-            response = self.client.chat.completions.create(
-                model=self.model_name,
-                messages=[
-                    {"role": "system", "content": system_message},
-                    {"role": "user", "content": user_message}
-                ],
-                temperature=0.2 # Low temperature for factual comparison
+            return LLMRunner.chat(
+                self.model_name, system_message, user_message,
+                temperature=0.2,
+                response_format=None,
             )
-            return response.choices[0].message.content
         except Exception as e:
-            logger.error(f"Simple chat error: {e}")
-            raise e
+            logger.error("Simple chat error: %s", e)
+            raise

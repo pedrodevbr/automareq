@@ -512,3 +512,38 @@ class ReferenceValidator:
         result_df = pd.DataFrame(results, index=df.index)
         result_df.columns = [f"{self.RESULT_PREFIX}{c}" for c in result_df.columns]
         return result_df
+
+    def run_analysis_search(
+        self,
+        df: pd.DataFrame,
+        max_workers: int = 3,
+    ) -> pd.DataFrame:
+        """
+        Adapter for the analysis pipeline.
+
+        Calls run_batch() and maps ref_* columns to the 7 flat column names
+        expected by the analysis pipeline (produto_identificado, preco_unitario_estimado, etc.).
+        """
+        ref_df = self.run_batch(df, max_workers=max_workers)
+        if ref_df.empty:
+            return pd.DataFrame(index=df.index)
+
+        # Map ref_* columns → analysis column names
+        mapping = {
+            "ref_reference_found": "produto_identificado",
+            "ref_price_estimated": "preco_unitario_estimado",
+            "ref_currency": "moeda",
+            "ref_url": "url_fonte",
+            "ref_availability": "disponibilidade",
+            "ref_part_number_note": "analise_confianca",
+            "ref_supplier": "fornecedor_principal",
+        }
+
+        result = pd.DataFrame(index=df.index)
+        for ref_col, analysis_col in mapping.items():
+            if ref_col in ref_df.columns:
+                result[analysis_col] = ref_df[ref_col]
+            else:
+                result[analysis_col] = None
+
+        return result

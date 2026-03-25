@@ -139,32 +139,36 @@ print()
 
 
 # ═════════════════════════════════════════════════════════════════════════════
-# [7] ANALISAR MATERIAIS
+# [7] ANÁLISE — Fase 1: SMIT + FRAC (Jira + SAP)
 # ═════════════════════════════════════════════════════════════════════════════
-# Etapas internas:
-#   7.1  Inicialização de flags
-#   7.2  Regras de negócio   (ZSTK / FRAC / AD / SMIT / ANA)
-#   7.3  Análise com IA      (para itens que precisam de decisão)
-#   7.4  Pesquisa de mercado (use_search=True habilita)
-#   7.5  Leitura de Jira     (SMIT → busca tickets abertos)
-#   7.6  Criação de tickets  (FRAC → abre ticket e altera MRP no SAP)
-# _pipeline_header(7, "Análise de materiais", "Regras + IA + Jira + pesquisa web")
+# Stages disponíveis: smit | frac | zstk | ad | ana
+# Fase 1 roda SMIT/FRAC que podem alterar dados no SAP.
+# Após Fase 1, re-exportar SAP, recarregar, e rodar Fase 2.
+# _pipeline_header(7, "Análise — Fase 1", "SMIT + FRAC (Jira + SAP)")
 # from core.analysis import run_analysis
-# df = run_analysis(df, use_jira=True, use_search=False)
+# df = run_analysis(df, stages=["smit", "frac"], use_jira=True)
+
+# ═════════════════════════════════════════════════════════════════════════════
+# [8] ANÁLISE — Fase 2: ZSTK + AD + ANA (IA + pesquisa)
+# ═════════════════════════════════════════════════════════════════════════════
+# Após re-exportar SAP e recarregar dados frescos.
+# _pipeline_header(8, "Análise — Fase 2", "ZSTK + AD + ANA (IA + pesquisa)")
+# from core.analysis import run_analysis
+# df = run_analysis(df, stages=["zstk", "ad", "ana"], use_search=True)
 
 
 # ═════════════════════════════════════════════════════════════════════════════
-# [8] EXPORTAR DASHBOARD PARA ANALISTAS
+# [9] EXPORTAR DASHBOARD PARA ANALISTAS
 # ═════════════════════════════════════════════════════════════════════════════
-# _pipeline_header(8, "Dashboard para analistas", "Gera dashboard.html + dashboard_data.js")
+# _pipeline_header(9, "Dashboard para analistas", "Gera dashboard.html + dashboard_data.js")
 # from utils.export_module import export_dashboard_data
 # export_dashboard_data(df)
 
 
 # ═════════════════════════════════════════════════════════════════════════════
-# [9] SEPARAR POR SETOR / GRUPO
+# [10] SEPARAR POR SETOR / GRUPO
 # ═════════════════════════════════════════════════════════════════════════════
-# _pipeline_header(9, "Separação por setor/grupo", "Pastas por responsável + templates AD")
+# _pipeline_header(10, "Separação por setor/grupo", "Pastas por responsável + templates AD")
 # from utils.export_module import separar_por_setor_grupo_taxacao
 # separar_por_setor_grupo_taxacao()
 
