@@ -1,3 +1,5 @@
+"""Business constants and thresholds for stock analysis."""
+
 # Thresholds de análise
 CV_THRESHOLD = 0.7
 TMD_THRESHOLD = 1.32
