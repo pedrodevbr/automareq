@@ -1,13 +1,26 @@
-import time
-import pandas as pd
+"""
+analysis.py — Stock analysis pipeline.
+
+Contains:
+  - StockAnalyzerPipeline   (6-step pipeline: init → rules → AI → search → Jira read → Jira create)
+  - run_analysis(df)        (Entry point)
+"""
+
+from __future__ import annotations
+
 import logging
+import time
+
+import pandas as pd
 from tqdm import tqdm
+
+from config.ai import ai_model_analysis
+from config.business import ALTO_VALOR, ALTO_VOLUME, ANOS_SEM_OC
 from services.ai_service import AIModule
 from services.jira_service import JiraModule
 from services.sap_service import SapManager
 from services.search_service_leg import SearchModule
 from utils.export_module import export_by_responsavel
-from config.config import ai_model_analysis, ALTO_VALOR, ALTO_VOLUME, ANOS_SEM_OC
 
 logger = logging.getLogger(__name__)
 

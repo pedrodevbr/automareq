@@ -1,19 +1,33 @@
+"""
+calculate.py — Stock parameter calculations.
+
+Contains:
+  - detect_outliers_row     (IQR-based outlier detection)
+  - calculate_pr_row        (Reorder Point from cleaned consumption)
+  - decision_tree_row       (Policy decision: ZP/ZL/ZM/ZE/ZO/ZD)
+  - run_calculations(df)    (Main entry point)
+"""
+
+from __future__ import annotations
+
+import logging
+from typing import List
+
 import numpy as np
 import pandas as pd
-import datetime as dt
-import math
-import logging
-from typing import List, Any
 
-from utils.export_module import export_by_responsavel
+from config.business import (
+    ALTO_VOLUME,
+    ANOS_SEM_OC,
+    CUSTO_FIXO_PEDIDO,
+    CV_THRESHOLD,
+    DEMAND_WINDOW,
+    TAXA_MANUTENCAO,
+    TMD_THRESHOLD,
+    VALOR_UN_ALTO,
+)
 
-import os
-
-# Configuração de Logger
 logger = logging.getLogger(__name__)
-
-from config.config import (DEMAND_WINDOW, BAIXO_VALOR, ALTO_VOLUME, VALOR_UN_ALTO, 
-                    ANOS_SEM_OC, CV_THRESHOLD, TMD_THRESHOLD, OUTPUT_FOLDER,CUSTO_FIXO_PEDIDO, TAXA_MANUTENCAO)
 
 
 def detect_outliers_row(row_values: np.ndarray) -> List[float]:
