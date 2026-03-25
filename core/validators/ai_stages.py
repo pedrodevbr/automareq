@@ -298,7 +298,7 @@ def _classify_planner_batch(batch_df: pd.DataFrame) -> List[MaterialClassificati
 
 def validate_planner(df: pd.DataFrame, max_workers: int = 3) -> pd.DataFrame:
     """Classifies each material into a Planejador_MRP code using AI."""
-    from utils.export_module import export_by_responsavel
+    from utils.export_core import export_by_responsavel
 
     if df.empty:
         return df
@@ -562,7 +562,7 @@ def run_obs_precheck(
     Adds: obs_pn_presente, obs_referencia_extraida, obs_pesquisa_vale,
           obs_motivo, obs_sugestao_texto.
     """
-    from utils.export_module import export_by_responsavel
+    from utils.export_core import export_by_responsavel
 
     # 1. Static PN presence check
     df["obs_pn_presente"] = df.apply(
@@ -778,7 +778,7 @@ def run_image_validation(
     Stage 5 — Image Validation. LLM vision analysis of material photos.
     Adds: img_path, img_qualidade, img_motivo, img_substituir.
     """
-    from utils.export_module import export_by_responsavel
+    from utils.export_core import export_by_responsavel
 
     for col in ["img_path", "img_qualidade", "img_motivo", "img_substituir"]:
         df[col] = "" if col != "img_substituir" else False

@@ -23,7 +23,7 @@ from config.sources import (
     get_all_included_columns,
     get_merged_type_map,
 )
-from utils.export_module import export_by_responsavel
+from utils.export_core import export_by_responsavel
 
 logger = logging.getLogger(__name__)
 

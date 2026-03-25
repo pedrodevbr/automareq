@@ -32,3 +32,49 @@ def country_for_responsavel(resp_key: str) -> str:
     """Returns 'BR' or 'PY' based on RESPONSAVEIS config. Defaults to 'BR'."""
     info = RESPONSAVEIS.get(str(resp_key).strip().upper())
     return info[0] if info else "BR"
+
+
+# ---------------------------------------------------------------------------
+# Email / Envio
+# ---------------------------------------------------------------------------
+
+MTSE_RECIPIENT = "borchard"
+EMAIL_DOMAIN = "itaipu.gov"
+
+EMAIL_SUBJECT = "Relatorio de Analise de Materiais - {date}"
+
+EMAIL_BODY_PT = """\
+Prezados,
+
+Segue em anexo o relatorio de analise de materiais, contendo:
+  - Validacao dos textos (PT / ES)
+  - Validacao dos grupos de mercadoria
+  - Referencias de mercado e conferencia de part numbers
+
+Estou disponivel para qualquer esclarecimento.
+
+Atenciosamente,
+Pedro Henrique
+"""
+
+EMAIL_BODY_ES = """\
+Estimados,
+
+Adjunto encontraran el reporte de analisis de materiales, que incluye:
+  - Validacion de textos (PT / ES)
+  - Validacion de grupos de mercancia
+  - Referencias de mercado y verificacion de part numbers
+
+Quedo a disposicion para cualquier consulta.
+
+Atentamente,
+Pedro Henrique
+"""
+
+CPV_CC_EMAIL = "pedrohvb@itaipu.gov.br"
+
+CPV_RECIPIENTS = {
+    "1": "srvegaa@itaipu.gov.py",
+    "2": "borchard@itaipu.gov.br",
+    "teste": "pedrohvb@itaipu.gov.br",
+}

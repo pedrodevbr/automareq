@@ -14,7 +14,7 @@ import logging
 
 import pandas as pd
 
-from utils.export_module import export_by_responsavel
+from utils.export_core import export_by_responsavel
 
 logger = logging.getLogger(__name__)
 

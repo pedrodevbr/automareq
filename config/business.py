@@ -17,3 +17,6 @@ ANOS_SEM_OC = 2
 # Constantes de negócio
 CUSTO_FIXO_PEDIDO = 100.0   # Custo administrativo estimado por pedido (S)
 TAXA_MANUTENCAO = 0.10      # 10% ao ano sobre o valor do item (i)
+
+# Emissão — limiar para seleção de template AD
+AD_VALUE_THRESHOLD = 7_000  # BRL — determina CPV (≤7k) vs Inexigibilidade (>7k)

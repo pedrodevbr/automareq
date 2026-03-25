@@ -16,7 +16,7 @@ from typing import Optional
 import pandas as pd
 
 from core.validators._base import MAX_AUDIT_WORKERS
-from utils.export_module import export_by_responsavel, export_debug
+from utils.export_core import export_by_responsavel, export_debug
 
 logger = logging.getLogger(__name__)
 

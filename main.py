@@ -158,19 +158,15 @@ print()
 
 
 # ═════════════════════════════════════════════════════════════════════════════
-# [9] EXPORTAR DASHBOARD PARA ANALISTAS
+# [9] EMISSÃO — Dashboard + Separação por grupo + Envio
 # ═════════════════════════════════════════════════════════════════════════════
-# _pipeline_header(9, "Dashboard para analistas", "Gera dashboard.html + dashboard_data.js")
-# from utils.export_module import export_dashboard_data
-# export_dashboard_data(df)
-
-
-# ═════════════════════════════════════════════════════════════════════════════
-# [10] SEPARAR POR SETOR / GRUPO
-# ═════════════════════════════════════════════════════════════════════════════
-# _pipeline_header(10, "Separação por setor/grupo", "Pastas por responsável + templates AD")
-# from utils.export_module import separar_por_setor_grupo_taxacao
-# separar_por_setor_grupo_taxacao()
+# Stages disponíveis: dashboard | groups | templates | send
+# Exemplos:
+#   run_emission(df)                                     → todos os stages
+#   run_emission(df, stages=["dashboard", "groups"])      → apenas dashboard e separação
+# _pipeline_header(9, "Emissão", "Dashboard + Separação + Templates + Envio")
+# from core.emission import run_emission
+# run_emission(df, stages=["dashboard", "groups"])
 
 
 # ─────────────────────────────────────────────────────────────────────────────

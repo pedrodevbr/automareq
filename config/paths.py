@@ -10,5 +10,7 @@ OUTPUT_FOLDER = DATA_FOLDER / MONTH_FOLDER / "output"
 TEMPLATES_FOLDER = BASE_DIR / "templates"
 
 # Criar diretórios se não existirem
+AD_TEMPLATE_DIR = TEMPLATES_FOLDER / "AD"
+
 INPUT_FOLDER.mkdir(parents=True, exist_ok=True)
 OUTPUT_FOLDER.mkdir(parents=True, exist_ok=True)
