@@ -1,72 +1,86 @@
-Coluna_Original,Coluna_Padronizada,Tipo_Variavel_Python
-Data abertura plan.,Data_Abertura,datetime
-Material,Codigo_Material,str
-Txt.brv.material,Texto_Breve_Material,str
-Grupo de mercadorias,Grupo_Mercadoria,str
-Setor de atividade,Setor_Atividade,str
-Nº peça fabricante,Numero_Peca_Fabricante,str
-Planejador MRP,Planejador_MRP,str
-Grupo MRP,Grupo_MRP,str
-Tipo de MRP,Tipo_MRP,str
-Prz.entrg.prev.,Prazo_Entrega_Previsto,int
-Estoque total,Estoque_Total,float
-Ponto reabastec.,Ponto_Reabastecimento,float
-Estoque máximo,Estoque_Maximo,float
-Estoque de segurança,Estoque_Seguranca,float
-Valor total,Valor_Total_Em_Estoque,float
-CMM,Consumo_Medio_Mensal,float
-Demanda,Perfil_Demanda,str
-Demanda Med.,Demanda_Mensal,float
-Preço Unit.,Preco_Unitario,float
-Qtd. RTP1,RTP1,float
-Qtd. RTP2,RTP2,float
-Qtd. RTP3,RTP3,float
-Qtd. RTP6,RTP6,float
-Sld. Virtual,Saldo_Virtual,float
-Qtd.ordem planejada,Quantidade_Ordem,float
-Valor OP,Valor_Total_Ordem,float
-Responsável,Responsavel,str
-Criticidade,Criticidade,str
-Qtd. LMR,Quantidade_LMR,float
-Dem. Pro.,Demanda_Programada,float
-Dt. Ult. Pedido,Data_Ultimo_Pedido,datetime
-Fornecedor,Codigo_Fornecedor,str
-Nome,Nome_Fornecedor,str
-Dt. Ult. Requisição,Data_Ultima_Requisicao,datetime
-Qtd. Pedido,Quantidade_Pedida,float
-Qtd. Requisição,Quantidade_Requisitada,float
-Qtd. RemCG,Quantidade_Remessa_CG,float
-Dt. Ult. 201,Data_Ultimo_Consumo,datetime
-Qt. 201 - 12 Meses,Quantidade_201_12m,float
-1 LTD,LTD_1,float
-2 LTD,LTD_2,float
-3 LTD,LTD_3,float
-4 LTD,LTD_4,float
-5 LTD,LTD_5,float
-6 LTD,LTD_6,float
-7 LTD,LTD_7,float
-8 LTD,LTD_8,float
-9 LTD,LTD_9,float
-10 LTD,LTD_10,float
-11 LTD,LTD_11,float
-12 LTD,LTD_12,float
-13 LTD,LTD_13,float
-14 LTD,LTD_14,float
-15 LTD,LTD_15,float
-16 LTD,LTD_16,float
-17 LTD,LTD_17,float
-18 LTD,LTD_18,float
-19 LTD,LTD_19,float
-20 LTD,LTD_20,float
-Código ABC,Classificacao_ABC,str
-AdminLoteObrig.,Adicional_Lote_Obrigatorio,bool
-Texto - pt,Texto_PT,str
-Texto - es,Texto_ES,str
-Texto OBS - pt,Texto_Observacao_PT,str
-Texto OBS - es,Texto_Observacao_ES,str
-Texto QM - pt,Texto_Qualidade_Material_PT,str
-Texto QM - es,Texto_Qualidade_Material_ES,str
-Texto DB - pt,Texto_Dados_Basicos_PT,str
-Texto DB - es,Texto_Dados_Basicos_ES,str
-Volume,Volume,float
-Un.Volume,Unidade_Volume,str
+Coluna_Original,Coluna_Padronizada,Tipo_Variavel_Python,Fonte,Incluida
+Data abertura plan.,Data_Abertura,datetime,OP,True
+Material,Codigo_Material,str,OP,True
+Txt.brv.material,Texto_Breve_Material,str,OP,True
+Grupo de mercadorias,Grupo_Mercadoria,str,OP,True
+Setor de atividade,Setor_Atividade,str,OP,True
+Nº peça fabricante,Numero_Peca_Fabricante,str,OP,True
+Planejador MRP,Planejador_MRP,str,OP,True
+Grupo MRP,Grupo_MRP,str,OP,True
+Tipo de MRP,Tipo_MRP,str,OP,True
+Prz.entrg.prev.,Prazo_Entrega_Previsto,int,OP,True
+Estoque total,Estoque_Total,float,OP,True
+Ponto reabastec.,Ponto_Reabastecimento,float,OP,True
+Estoque máximo,Estoque_Maximo,float,OP,True
+Estoque de segurança,Estoque_Seguranca,float,OP,True
+Valor Estoque,Valor_Total_Em_Estoque,float,OP,True
+CMM,Consumo_Medio_Mensal,float,OP,True
+Demanda,Perfil_Demanda,str,OP,True
+Demanda Med.,Demanda_Mensal,float,OP,True
+Preço Unit.,Preco_Unitario,float,OP,True
+Qtd. RTP1,RTP1,float,OP,True
+Qtd. RTP2,RTP2,float,OP,True
+Qtd. RTP3,RTP3,float,OP,True
+Qtd. RTP6,RTP6,float,OP,True
+Sld. Virtual,Saldo_Virtual,float,OP,True
+Qtd.ordem planejada,Quantidade_Ordem,float,OP,True
+Valor OP,Valor_Total_Ordem,float,OP,True
+Responsável,Responsavel,str,OP,True
+Criticidade,Criticidade,str,OP,True
+Qtd. LMR,Quantidade_LMR,float,OP,True
+Dem. Pro.,Demanda_Programada,float,OP,True
+Dt. Ult. Pedido,Data_Ultimo_Pedido,datetime,OP,True
+Fornecedor,Codigo_Fornecedor,str,OP,True
+Nome,Nome_Fornecedor,str,OP,True
+Dt. Ult. Requisição,Data_Ultima_Requisicao,datetime,OP,True
+Qtd. Pedido,Quantidade_Pedida,float,OP,True
+Qtd. Requisição,Quantidade_Requisitada,float,OP,True
+Qtd. RemCG,Quantidade_Remessa_CG,float,OP,True
+Dt. Ult. 201,Data_Ultimo_Consumo,datetime,OP,True
+Qt. 201 - 12 Meses,Quantidade_201_12m,float,OP,True
+1LTD,LTD_1,float,OP,True
+2LTD,LTD_2,float,OP,True
+3LTD,LTD_3,float,OP,True
+4LTD,LTD_4,float,OP,True
+5LTD,LTD_5,float,OP,True
+Código ABC,Classificacao_ABC,str,OP,True
+AdminLoteObrig.,Adicional_Lote_Obrigatorio,bool,OP,True
+Volume,Volume,float,OP,True
+Unidade de volume,Unidade_Volume,str,OP,True
+Descrição - pt,Descricao_PT,str,0127,True
+Descrição - es,Descricao_ES,str,0127,True
+Nº peça fabricante,Numero_Peca_Fabricante,str,0127,False
+Texto - pt,Texto_PT,str,0127,True
+Texto - es,Texto_ES,str,0127,True
+Texto OBS - pt,Texto_Observacao_PT,str,0127,True
+Texto OBS - es,Texto_Observacao_ES,str,0127,True
+Texto QM - pt,Texto_Qualidade_Material_PT,str,0127,True
+Texto QM - es,Texto_Qualidade_Material_ES,str,0127,True
+Texto DB - pt,Texto_Dados_Basicos_PT,str,0127,True
+Texto DB - es,Texto_Dados_Basicos_ES,str,0127,True
+Texto REF LMR,Texto_REF_LMR,str,0127,True
+Status,Status,str,0127,False
+Texto CLA - pt,Texto_CLA_PT,str,0127,False
+Texto CLA - es,Texto_CLA_ES,str,0127,False
+Texto LMR,Texto_LMR,str,0127,False
+Linha,Linha,str,0127,False
+Material,Codigo_Material,str,0130,False
+Txt.brv.material,Texto_Breve_Material,str,0130,False
+Prz.entrg.prev.,Prazo_Entrega_Previsto,int,0130,False
+1 LTD,LTD_1,float,0130,True
+2 LTD,LTD_2,float,0130,True
+3 LTD,LTD_3,float,0130,True
+4 LTD,LTD_4,float,0130,True
+5 LTD,LTD_5,float,0130,True
+6 LTD,LTD_6,float,0130,True
+7 LTD,LTD_7,float,0130,True
+8 LTD,LTD_8,float,0130,True
+9 LTD,LTD_9,float,0130,True
+10 LTD,LTD_10,float,0130,True
+11 LTD,LTD_11,float,0130,True
+12 LTD,LTD_12,float,0130,True
+13 LTD,LTD_13,float,0130,True
+14 LTD,LTD_14,float,0130,True
+15 LTD,LTD_15,float,0130,True
+16 LTD,LTD_16,float,0130,True
+17 LTD,LTD_17,float,0130,True
