@@ -8,3 +8,5 @@ openpyxl>=3.1.0            # Excel output with formatting
 requests>=2.31.0           # URL fetching for product pages
 beautifulsoup4>=4.12.0     # HTML parsing for product pages
 duckduckgo-search>=6.0.0   # Web search (no API key needed)
+rich>=13.0.0               # Terminal UI for control panel
+xlsxwriter>=3.1.0          # Excel export with formatting
