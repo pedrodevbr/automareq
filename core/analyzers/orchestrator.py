@@ -74,11 +74,22 @@ def run_stage_ana(df: pd.DataFrame, **_kw) -> pd.DataFrame:
     return df
 
 
+def run_stage_jira_analysis(df: pd.DataFrame, *, jira=None, **_kw) -> pd.DataFrame:
+    """Stage: JIRA Analysis — read all comments + LLM analysis."""
+    from core.analyzers.stages.jira_analysis import run_jira_analysis
+    try:
+        df = run_jira_analysis(df, jira)
+    except Exception as exc:
+        logger.error("Stage JIRA Analysis failed: %s", exc)
+    return df
+
+
 # ===========================================================================
 # Stage registry
 # ===========================================================================
 
 _ALL_STAGES: list[tuple[str, callable]] = [
+    ("jira_analysis", run_stage_jira_analysis),
     ("smit", run_stage_smit),
     ("frac", run_stage_frac),
     ("zstk", run_stage_zstk),
@@ -103,7 +114,7 @@ def run_analysis(
     Args:
         df:         Input DataFrame (post-validation, post-calculation).
         stages:     Optional list of stage names to run.
-                    Valid: 'smit', 'frac', 'zstk', 'ad', 'ana'.
+                    Valid: 'jira_analysis', 'smit', 'frac', 'zstk', 'ad', 'ana'.
                     If None, all stages run in order.
         use_jira:   Whether to enable JIRA operations.
         use_search: Whether to enable market search.
@@ -166,7 +177,7 @@ def run_analysis(
 
 def _stage_number(name: str) -> int:
     """Return a display number for the stage."""
-    numbers = {"smit": 1, "frac": 2, "zstk": 3, "ad": 4, "ana": 5}
+    numbers = {"jira_analysis": 0, "smit": 1, "frac": 2, "zstk": 3, "ad": 4, "ana": 5}
     return numbers.get(name, 0)
 
 
@@ -174,8 +185,8 @@ def _create_services(active: set[str], use_jira: bool, use_search: bool) -> dict
     """Lazily create only the services needed by active stages."""
     services: dict = {}
 
-    # JIRA + SAP needed by smit and frac
-    if use_jira and (active & {"smit", "frac"}):
+    # JIRA + SAP needed by smit, frac, and jira_analysis
+    if use_jira and (active & {"smit", "frac", "jira_analysis"}):
         try:
             from services.jira_service import JiraModule
             services["jira"] = JiraModule()

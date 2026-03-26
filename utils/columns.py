@@ -76,8 +76,84 @@ EXPORT_COLUMNS: list[str] = [
     "Texto_Qualidade_Material_PT", "Texto_Qualidade_Material_ES",
     "Texto_Dados_Basicos_PT", "Texto_Dados_Basicos_ES",
     "Texto REF LMR",
+    # ── JIRA Analysis ────────────────────────────────────────────────────
+    "jira_historico_resumo", "jira_acao_sugerida",
+    "jira_tickets_count", "jira_status_atual",
+    # ── Suggested Actions ────────────────────────────────────────────────
+    "acoes_sugeridas",
     # ── LTD History ───────────────────────────────────────────────────────
     *[f"LTD_{i}" for i in range(1, 13)],
+]
+
+
+# ---------------------------------------------------------------------------
+# Analyst report columns (streamlined for human review)
+# ---------------------------------------------------------------------------
+
+ANALYST_REPORT_COLUMNS: list[str] = [
+    # ── Identification ────────────────────────────────────────────────────
+    "Codigo_Material", "Texto_Breve_Material",
+    "Setor_Atividade", "Numero_Peca_Fabricante",
+    "Classificacao_ABC", "Criticidade",
+    # ── Validation Summary ────────────────────────────────────────────────
+    "classificacao_validacao", "score_validacao", "resumo_validacao",
+    # ── GRPM ──────────────────────────────────────────────────────────────
+    "Grupo_Mercadoria",
+    "grpm_decisao_llm", "grpm_novo_codigo", "grpm_justificativa",
+    # ── Planning ──────────────────────────────────────────────────────────
+    "Grupo_MRP", "Planejador_MRP",
+    "Politica_Atual", "PR_Atual", "MAX_Atual",
+    "Politica_Sugerida", "Quantidade_OP_Calculada",
+    "PR_Calculado", "MAX_Calculado",
+    # ── Financial ─────────────────────────────────────────────────────────
+    "Estoque_Total", "Saldo_Virtual", "Preco_Unitario", "Valor_Tributado",
+    # ── Reference ─────────────────────────────────────────────────────────
+    "ref_reference_found", "ref_supplier", "ref_url",
+    "ref_price_estimated", "ref_currency",
+    # ── AI Analysis ───────────────────────────────────────────────────────
+    "Analise_AI", "Quantidade_OP_AI", "Politica_AI", "Comentario",
+    # ── JIRA & Actions ────────────────────────────────────────────────────
+    "jira_historico_resumo", "jira_acao_sugerida", "acoes_sugeridas",
+    # ── Demand ────────────────────────────────────────────────────────────
+    "Consumo_Medio_Mensal", "Demanda_Anual", "Classificacao", "TMD", "CV",
+    # ── Texts ─────────────────────────────────────────────────────────────
+    "Texto_PT", "Texto_ES",
+    "obs_sugestao_texto", "Texto_Sugerido",
+    # ── Purchase ──────────────────────────────────────────────────────────
+    "Data_Ultimo_Pedido", "Anos_Ultima_Compra", "Responsavel",
+]
+
+
+# ---------------------------------------------------------------------------
+# AD requisition columns (procurement focus)
+# ---------------------------------------------------------------------------
+
+AD_REQUISITION_COLUMNS: list[str] = [
+    "Codigo_Material", "Texto_Breve_Material", "Grupo_Mercadoria",
+    "Numero_Peca_Fabricante", "Setor_Atividade",
+    "Preco_Unitario", "Valor_Tributado", "Valor_Total_Ordem",
+    "Quantidade_OP_AI", "Quantidade_OP_Calculada",
+    "Texto_PT", "Texto_ES",
+    "Texto_Observacao_PT", "Texto_Observacao_ES",
+    "ref_url", "ref_price_estimated", "ref_supplier",
+    "obs_sugestao_texto",
+    "Analise_AI", "Comentario", "acoes_sugeridas",
+    "pos_analise",
+]
+
+
+# ---------------------------------------------------------------------------
+# Non-replenish report columns
+# ---------------------------------------------------------------------------
+
+NAO_REPOR_COLUMNS: list[str] = [
+    "Codigo_Material", "Texto_Breve_Material", "Responsavel",
+    "Grupo_MRP", "Grupo_Mercadoria",
+    "Analise_AI", "Comentario", "acoes_sugeridas",
+    "Estoque_Total", "Saldo_Virtual", "Preco_Unitario",
+    "Consumo_Medio_Mensal", "Data_Ultimo_Consumo",
+    "Data_Ultimo_Pedido", "Anos_Ultima_Compra",
+    "jira_historico_resumo", "jira_acao_sugerida",
 ]
 
 
@@ -172,4 +248,14 @@ _DASHBOARD_COLS: list[str] = [
     "img_path", "img_qualidade", "img_motivo", "img_substituir",
     # validation summary
     "classificacao_validacao", "resumo_validacao",
+    # JIRA & actions
+    "jira_historico_resumo", "jira_acao_sugerida",
+    "jira_tickets_count", "jira_status_atual",
+    "acoes_sugeridas",
+    # AI analysis
+    "Analise_AI", "Comentario", "Politica_AI",
+    "Quantidade_OP_AI", "PR_AI", "MAX_AI",
+    # planning
+    "Grupo_MRP", "Politica_Sugerida", "PR_Calculado", "MAX_Calculado",
+    "Classificacao", "TMD", "CV",
 ]

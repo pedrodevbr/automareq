@@ -18,6 +18,7 @@ import pandas as pd
 
 from config.paths import OUTPUT_FOLDER
 from utils.columns import (
+    ANALYST_REPORT_COLUMNS,
     EXPORT_COLUMNS,
     _DEBUG_PRIORITY_COLUMNS,
     _select_export_columns,
@@ -51,25 +52,29 @@ def _format_group_code(grupo) -> str:
 def export_by_responsavel(
     df: pd.DataFrame,
     base_folder: Union[str, Path] = OUTPUT_FOLDER,
-    filename: str = "Analise",
+    filename: str = "Relatorio",
+    columns: list[str] | None = None,
 ) -> Dict[str, str]:
     """
     Exports *df* to Excel files organised by Responsavel.
 
     Structure:
       <base_folder>/
-        MTSE/<filename>.xlsx          <- full dataset (all rows)
-        <RESP>/<filename>_<RESP>.xlsx <- rows for each Responsavel
+        MTSE/<filename>_Completo_MTSE.xlsx    <- full dataset (all rows)
+        <RESP>/<filename>_<RESP>.xlsx         <- rows for each Responsavel
 
-    Only columns listed in EXPORT_COLUMNS are written, in that order.
+    Uses ANALYST_REPORT_COLUMNS by default (streamlined for review).
+    Pass columns=EXPORT_COLUMNS for the full column set.
     Returns a dict mapping each Responsavel key -> exported file path.
     """
     base_folder = _ensure_dir(base_folder)
-    df_export   = _select_export_columns(df, EXPORT_COLUMNS)
+    col_list = columns or ANALYST_REPORT_COLUMNS
+    df_export = _select_export_columns(df, col_list)
     results: Dict[str, str] = {}
 
     # Full file (MTSE folder = "everyone")
-    mtse_path = save_excel(df_export, base_folder / "MTSE" / f"{filename}.xlsx")
+    mtse_name = f"{filename}_Completo_MTSE.xlsx"
+    mtse_path = save_excel(df_export, base_folder / "MTSE" / mtse_name)
     results["MTSE"] = str(mtse_path)
     logger.info("Full export -> %s (%d rows)", mtse_path, len(df_export))
 
@@ -77,7 +82,7 @@ def export_by_responsavel(
     if "Responsavel" in df.columns:
         for resp in sorted(df["Responsavel"].dropna().unique()):
             safe = _sanitize(resp)
-            sub  = df_export[df["Responsavel"] == resp]
+            sub = df_export[df["Responsavel"] == resp]
             path = save_excel(sub, base_folder / safe / f"{filename}_{safe}.xlsx")
             results[safe] = str(path)
             logger.info("  -> %s: %d rows", path, len(sub))

@@ -10,14 +10,14 @@ from __future__ import annotations
 
 import json
 import logging
-from typing import Optional
+from typing import List, Optional
 
 import pandas as pd
 from pydantic import BaseModel, Field
 from tenacity import retry, stop_after_attempt, wait_exponential
 
 from config.sources import ANALYSIS_COLUMNS
-from config.prompts import SYSTEM_PROMPT, USER_PROMPT_TEMPLATE
+from config.prompts import ACTION_SUGGESTION_ADDENDUM, SYSTEM_PROMPT, USER_PROMPT_TEMPLATE
 from core.validators._base import LLMRunner
 
 logger = logging.getLogger(__name__)
@@ -32,6 +32,10 @@ class MaterialAnalysis(BaseModel):
     MAX_AI: Optional[float] = Field(None, description="Estoque Máximo sugerido")
     Politica_AI: Optional[str] = Field(None, description="Política de estoque sugerida (ex: ZS, ES, ZD)")
     Comentario: str = Field(..., description="Explicação detalhada e técnica da decisão tomada e recomendações")
+    acoes_sugeridas: List[str] = Field(
+        default_factory=list,
+        description="Lista de 1-5 ações específicas para o analista executar",
+    )
 
 
 class AIModule:
@@ -46,6 +50,14 @@ class AIModule:
             v = row.get(k)
             if pd.notna(v) and v != "":
                 lines.append(f"{k}: {v}")
+
+        # Include JIRA context if available
+        jira_cols = ["jira_historico_resumo", "jira_acao_sugerida", "jira_status_atual"]
+        for k in jira_cols:
+            v = row.get(k)
+            if pd.notna(v) and v != "":
+                lines.append(f"{k}: {v}")
+
         return "\n".join(lines)
 
     @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=2, max=10))
@@ -78,12 +90,13 @@ class AIModule:
             }
 
         prompt = USER_PROMPT_TEMPLATE.format(material_data=self.format_row(row))
+        system = SYSTEM_PROMPT + "\n\n" + ACTION_SUGGESTION_ADDENDUM
 
         try:
             response = LLMRunner.client().chat.completions.create(
                 model=self.model_name,
                 messages=[
-                    {"role": "system", "content": SYSTEM_PROMPT},
+                    {"role": "system", "content": system},
                     {"role": "user", "content": prompt},
                 ],
                 response_format={

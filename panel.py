@@ -172,9 +172,11 @@ def select_stages(pipeline: Pipeline) -> list[str]:
 
     # Preset shortcuts
     console.print("  [bold]Atalhos:[/bold]")
-    console.print("    [cyan]core[/cyan]    → load, filter, validate, calculate, summary")
-    console.print("    [cyan]full[/cyan]    → todos os estágios (incluindo opcionais)")
-    console.print("    [cyan]emit[/cyan]    → emission apenas")
+    console.print("    [cyan]core[/cyan]     → load, filter, validate, calculate, summary")
+    console.print("    [cyan]full[/cyan]     → todos os estágios (incluindo opcionais)")
+    console.print("    [cyan]output[/cyan]   → dashboard + separação")
+    console.print("    [cyan]emit[/cyan]     → dashboard + separação + envio")
+    console.print("    [cyan]analysis[/cyan] → análise fase 1 + fase 2")
     console.print()
 
     choice = Prompt.ask(
@@ -186,7 +188,8 @@ def select_stages(pipeline: Pipeline) -> list[str]:
     shortcuts = {
         "core": ["load", "filter", "validate", "calculate", "summary"],
         "full": [s.key for s in pipeline.stages],
-        "emit": ["emission"],
+        "output": ["dashboard", "separacao"],
+        "emit": ["dashboard", "separacao", "emission"],
         "analysis": ["analysis_p1", "analysis_p2"],
         "validate": ["validate"],
     }

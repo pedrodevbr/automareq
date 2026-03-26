@@ -34,6 +34,50 @@ Analise os seguintes dados do material.
 {material_data}
 """
 
+# ---------------------------------------------------------------------------
+# JIRA Analysis prompt
+# ---------------------------------------------------------------------------
+
+JIRA_ANALYSIS_SYSTEM_PROMPT = """\
+Você é um analista de materiais que revisará o histórico de consultas JIRA \
+de um material de estoque.  Seu trabalho é resumir o histórico e sugerir \
+a próxima ação concreta para o analista.
+
+Responda APENAS em JSON válido com os campos:
+  resumo: string — Resumo do histórico de consultas (máx 200 palavras)
+  acao_sugerida: string — Ação recomendada para o analista (concreta e específica)
+  urgencia: string — ALTA | MEDIA | BAIXA
+  observacoes: string — Observações adicionais (opcional)
+"""
+
+JIRA_ANALYSIS_USER_TEMPLATE = """\
+Material: {codigo} — {descricao}
+Grupo MRP: {grupo_mrp}
+Estoque Total: {estoque}
+Saldo Virtual: {saldo}
+Último Consumo: {ultimo_consumo}
+
+Tickets JIRA encontrados: {num_tickets}
+
+Histórico de comentários:
+{comentarios}
+"""
+
+# ---------------------------------------------------------------------------
+# Action suggestion prompt (extends main AI analysis)
+# ---------------------------------------------------------------------------
+
+ACTION_SUGGESTION_ADDENDUM = """
+AÇÕES SUGERIDAS:
+Além da análise padrão, forneça uma lista de 1-5 ações específicas que o \
+analista deve executar. Exemplos:
+- "Atualizar preço de referência — último pedido há 3 anos"
+- "Verificar com especialista SMIT — ticket GCSMIT-1234 pendente"
+- "Reduzir MAX de 50 para 30 — consumo em queda nos últimos 6 LTDs"
+- "Abrir consulta JIRA — material sem referência de mercado"
+- "Aprovar reposição — consumo estável, estoque abaixo do PR"
+"""
+
 STOCK_POLICY_REFERENCE = """
     POLÍTICAS DE ESTOQUE:
     - ZP: Consumo frequente (manter estoque para itens de uso regular)

@@ -4,7 +4,7 @@ pipeline.py — Pipeline engine with stage registry, state tracking, and runner.
 Provides:
   - PipelineConfig:    Dataclass with all user-configurable options
   - StageResult:       Per-stage execution result (status, time, metrics)
-  - Pipeline:          Central orchestrator that wraps all 9 top-level stages
+  - Pipeline:          Central orchestrator that wraps all 11 top-level stages
 """
 
 from __future__ import annotations
@@ -35,13 +35,13 @@ class PipelineConfig:
         default_factory=lambda: ["leadtime", "grpm", "ref_obs"],
     )
     analysis_p1_stages: list[str] = field(
-        default_factory=lambda: ["smit", "frac"],
+        default_factory=lambda: ["jira_analysis", "smit", "frac"],
     )
     analysis_p2_stages: list[str] = field(
         default_factory=lambda: ["zstk", "ad", "ana"],
     )
     emission_stages: list[str] = field(
-        default_factory=lambda: ["dashboard", "groups"],
+        default_factory=lambda: ["templates", "send"],
     )
 
     # Feature flags
@@ -116,25 +116,35 @@ _STAGE_DEFS: list[StageDefinition] = [
     ),
     StageDefinition(
         key="analysis_p1", name="Análise Fase 1", group="Análise",
-        description="SMIT + FRAC (Jira/SAP — pode alterar dados)",
-        substages=["smit", "frac"], optional=True,
+        description="JIRA Analysis + SMIT + FRAC (Jira/SAP)",
+        substages=["jira_analysis", "smit", "frac"], optional=True,
     ),
     StageDefinition(
         key="analysis_p2", name="Análise Fase 2", group="Análise",
-        description="ZSTK + AD + ANA (IA + pesquisa)",
+        description="ZSTK + AD + ANA (IA + pesquisa + ações)",
         substages=["zstk", "ad", "ana"], optional=True,
     ),
     StageDefinition(
-        key="emission", name="Emissão", group="Saída",
-        description="Dashboard, separação, templates, envio",
-        substages=["dashboard", "groups", "templates", "send"],
+        key="dashboard", name="Dashboard", group="Saída",
+        description="Gera dashboard HTML interativo por analista",
+        optional=True,
+    ),
+    StageDefinition(
+        key="separacao", name="Separação por Grupos", group="Saída",
+        description="Pastas AD/ZSTK por grupo e tributação",
+        optional=True,
+    ),
+    StageDefinition(
+        key="emission", name="Emissão (Envio)", group="Saída",
+        description="Templates + zip + rascunhos de e-mail",
+        substages=["templates", "send"],
         optional=True,
     ),
 ]
 
 
 class Pipeline:
-    """Central pipeline orchestrator — drives all 9 stages."""
+    """Central pipeline orchestrator — drives all 11 stages."""
 
     def __init__(self, config: Optional[PipelineConfig] = None):
         self.config = config or PipelineConfig()
@@ -215,6 +225,8 @@ class Pipeline:
             "summary":      self._run_summary,
             "analysis_p1":  self._run_analysis_p1,
             "analysis_p2":  self._run_analysis_p2,
+            "dashboard":    self._run_dashboard,
+            "separacao":    self._run_separacao,
             "emission":     self._run_emission,
         }
         return runners[key]
@@ -322,7 +334,27 @@ class Pipeline:
             summary["decisions"] = (
                 self.df["Analise_AI"].value_counts().to_dict()
             )
+        # Collect suggested actions summary
+        if "acoes_sugeridas" in self.df.columns:
+            has_actions = self.df["acoes_sugeridas"].notna().sum()
+            summary["with_actions"] = int(has_actions)
         self.results["analysis_p2"].summary = summary
+
+    def _run_dashboard(self) -> None:
+        assert self.df is not None
+        from core.emitters.stages.dashboard import export_dashboard_data
+        export_dashboard_data(self.df)
+        n_resp = self.df["Responsavel"].nunique() if "Responsavel" in self.df.columns else 1
+        self.results["dashboard"].summary = {"analysts": n_resp}
+
+    def _run_separacao(self) -> None:
+        assert self.df is not None
+        from core.emitters.stages.group_separation import separar_por_setor_grupo_taxacao
+        from utils.export_core import export_by_responsavel
+        # Export the full analysis first so separation has data
+        export_by_responsavel(self.df, filename="Relatorio")
+        separar_por_setor_grupo_taxacao(df=self.df)
+        self.results["separacao"].summary = {"materials": len(self.df)}
 
     def _run_emission(self) -> None:
         assert self.df is not None
