@@ -3,7 +3,7 @@ orchestrator.py — Analysis pipeline orchestration.
 
 Contains:
   - run_stage_* wrappers (error handling per stage)
-  - _ALL_STAGES registry
+  - AnalysisOrchestrator registry
   - run_analysis() — main entry point
 """
 
@@ -16,6 +16,8 @@ from typing import Optional
 import pandas as pd
 
 from core.analyzers._base import init_analysis_columns, step_header
+from core.base_orchestrator import BaseOrchestrator
+from utils.formatting import pipeline_banner, pipeline_footer
 
 logger = logging.getLogger(__name__)
 
@@ -85,7 +87,7 @@ def run_stage_jira_analysis(df: pd.DataFrame, *, jira=None, **_kw) -> pd.DataFra
 
 
 # ===========================================================================
-# Stage registry
+# Stage registry (order matters)
 # ===========================================================================
 
 _ALL_STAGES: list[tuple[str, callable]] = [
@@ -96,6 +98,8 @@ _ALL_STAGES: list[tuple[str, callable]] = [
     ("ad", run_stage_ad),
     ("ana", run_stage_ana),
 ]
+
+_STAGE_NUMBERS = {"jira_analysis": 0, "smit": 1, "frac": 2, "zstk": 3, "ad": 4, "ana": 5}
 
 
 # ===========================================================================
@@ -121,16 +125,28 @@ def run_analysis(
 
     Returns the enriched DataFrame.
     """
-    bar = "═" * 58
     n = len(df)
-    print(f"\n╔{bar}╗")
-    print(f"║  PIPELINE DE ANÁLISE — {n} materiais{' ' * max(0, 27 - len(str(n)))}║")
+
+    # Validate stage names using base orchestrator utility
+    active = BaseOrchestrator.validate_stages.__func__(
+        type("_", (), {"stage_registry": _ALL_STAGES, "valid_stage_names": classmethod(lambda cls: {n for n, _ in _ALL_STAGES})})(),
+        stages,
+    ) if stages else {name for name, _ in _ALL_STAGES}
     if stages:
-        stage_str = ", ".join(stages)
-        print(f"║  Stages: {stage_str:<47}║")
-    print(f"║  Jira: {'ativo' if use_jira else 'desativado':<49}║")
-    print(f"║  Pesquisa web: {'ativa' if use_search else 'desativada':<42}║")
-    print(f"╚{bar}╝")
+        active = set(stages)
+        valid_names = {n for n, _ in _ALL_STAGES}
+        invalid = active - valid_names
+        if invalid:
+            raise ValueError(
+                f"Stage(s) desconhecido(s): {invalid}. "
+                f"Válidos: {sorted(valid_names)}"
+            )
+
+    pipeline_banner("PIPELINE DE ANÁLISE", n, [
+        f"Stages: {', '.join(stages)}" if stages else "",
+        f"Jira: {'ativo' if use_jira else 'desativado'}",
+        f"Pesquisa web: {'ativa' if use_search else 'desativada'}",
+    ])
 
     t_total = time.time()
 
@@ -141,23 +157,13 @@ def run_analysis(
     if "Analise_AI" not in df.columns:
         df["Analise_AI"] = ""
 
-    # Validate requested stages
-    active = set(stages or [n for n, _ in _ALL_STAGES])
-    valid_names = {n for n, _ in _ALL_STAGES}
-    invalid = active - valid_names
-    if invalid:
-        raise ValueError(
-            f"Stage(s) desconhecido(s): {invalid}. "
-            f"Válidos: {sorted(valid_names)}"
-        )
-
     # Lazy service creation
     services = _create_services(active, use_jira, use_search)
 
     # Run stages
     for name, fn in _ALL_STAGES:
         if name in active:
-            step_header(_stage_number(name), f"Análise — {name.upper()}")
+            step_header(_STAGE_NUMBERS.get(name, 0), f"Análise — {name.upper()}")
             df = fn(df, **services)
 
     # Summary
@@ -173,12 +179,6 @@ def run_analysis(
     print(f"{'═' * 58}\n")
 
     return df
-
-
-def _stage_number(name: str) -> int:
-    """Return a display number for the stage."""
-    numbers = {"jira_analysis": 0, "smit": 1, "frac": 2, "zstk": 3, "ad": 4, "ana": 5}
-    return numbers.get(name, 0)
 
 
 def _create_services(active: set[str], use_jira: bool, use_search: bool) -> dict:

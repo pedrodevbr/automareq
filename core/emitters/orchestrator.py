@@ -12,11 +12,12 @@ from __future__ import annotations
 import logging
 import time
 from pathlib import Path
-from typing import Optional, Union
+from typing import Optional
 
 import pandas as pd
 
-from core.emitters._base import step_header
+from core.base_orchestrator import BaseOrchestrator
+from utils.formatting import pipeline_banner, pipeline_footer, step_header
 
 logger = logging.getLogger(__name__)
 
@@ -53,9 +54,6 @@ def run_stage_groups(df: pd.DataFrame, **kw) -> pd.DataFrame:
 
 def run_stage_templates(df: pd.DataFrame, **kw) -> pd.DataFrame:
     """Stage: templates — Fill and convert procurement templates."""
-    # This stage is typically run per-item, not on the full DataFrame.
-    # It's included in the registry for completeness but usually called
-    # directly via solicitar_aprovacao_cpv().
     logger.info("Templates stage: use solicitar_aprovacao_cpv() for per-item processing.")
     return df
 
@@ -86,6 +84,8 @@ _ALL_STAGES: list[tuple[str, callable]] = [
     ("send",      run_stage_send),
 ]
 
+_STAGE_NUMBERS = {"dashboard": 1, "groups": 2, "templates": 3, "send": 4}
+
 
 # ===========================================================================
 # Main entry point
@@ -109,20 +109,9 @@ def run_emission(
 
     Returns the DataFrame (unchanged — emission stages produce side-effects).
     """
-    bar = "═" * 58
-    n = len(df)
-    print(f"\n╔{bar}╗")
-    print(f"║  PIPELINE DE EMISSÃO — {n} materiais{' ' * max(0, 27 - len(str(n)))}║")
-    if stages:
-        stage_str = ", ".join(stages)
-        print(f"║  Stages: {stage_str:<47}║")
-    print(f"╚{bar}╝")
-
-    t_total = time.time()
-
-    # Validate requested stages
-    active = set(stages or [n for n, _ in _ALL_STAGES])
+    # Validate stage names
     valid_names = {n for n, _ in _ALL_STAGES}
+    active = set(stages) if stages else valid_names
     invalid = active - valid_names
     if invalid:
         raise ValueError(
@@ -130,15 +119,16 @@ def run_emission(
             f"Válidos: {sorted(valid_names)}"
         )
 
-    stage_numbers = {"dashboard": 1, "groups": 2, "templates": 3, "send": 4}
+    pipeline_banner("PIPELINE DE EMISSÃO", len(df), [
+        f"Stages: {', '.join(stages)}" if stages else "",
+    ])
+
+    t_total = time.time()
 
     for name, fn in _ALL_STAGES:
         if name in active:
-            step_header(stage_numbers.get(name, 0), f"Emissão — {name.upper()}")
+            step_header(_STAGE_NUMBERS.get(name, 0), f"Emissão — {name.upper()}")
             df = fn(df, **kwargs)
 
-    print(f"\n{'═' * 58}")
-    print(f"  EMISSÃO CONCLUÍDA em {time.time() - t_total:.1f}s")
-    print(f"{'═' * 58}\n")
-
+    pipeline_footer("EMISSÃO CONCLUÍDA", time.time() - t_total)
     return df
