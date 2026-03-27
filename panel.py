@@ -20,11 +20,9 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
-# Encoding fix for Windows terminals
-if hasattr(sys.stdout, "reconfigure"):
-    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-if hasattr(sys.stderr, "reconfigure"):
-    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+from utils.formatting import configure_encoding
+
+configure_encoding()
 
 from rich.console import Console
 from rich.panel import Panel

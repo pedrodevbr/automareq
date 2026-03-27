@@ -373,22 +373,4 @@ def run_calculations(df_input: pd.DataFrame) -> pd.DataFrame:
     df = df.reindex(columns=df.columns.tolist() + empty_cols)
     df[empty_cols] = ''
 
-    colunas_organizadas = [
-        'Codigo_Material', 'Texto_Breve_Material', 'Grupo_Mercadoria', 'Grupo_Calculado', 'Setor_Atividade', 'Numero_Peca_Fabricante', 'Classificacao_ABC', 'Criticidade',
-        'Planejador_MRP', 'Grupo_MRP', 'Politica_Atual', 'PR_Atual', 'MAX_Atual', 'Politica_Sugerida', 'PR_Calculado', 'MAX_Calculado', 'Estoque_Seguranca', 'Nivel_Servico',
-        'Estoque_Total', 'Saldo_Virtual', 'Preco_Unitario', 'Valor Estoque', 'Valor_Atualizado', 'Valor_Tributado',
-        'Consumo_Medio_Mensal', 'Demanda_Mensal', 'Demanda_Programada', 'Demanda_Anual', 'Perfil_Demanda', 'TMD', 'CV', 'Classificacao', 'Outliers', 'Data_Ultimo_Consumo', 'Quantidade_201_12m',
-        'Data_Ultimo_Pedido', 'Anos_Ultima_Compra', 'Responsavel', 'Quantidade_Ordem', 'Valor_Total_Ordem',
-        'Prazo_Entrega_Previsto', 'Dias_Em_OP', 
-        'Volume', 'Unidade de volume', 'Volume_OP', 'Adicional_Lote_Obrigatorio',
-        'Text_Analysis', 'pos_analise', 'RTP1', 'RTP2', 'RTP3', 'RTP6', 'Quantidade_LMR',
-        'Texto_PT', 'Texto_ES', 'Texto_Observacao_PT', 'Texto_Observacao_ES', 'Texto_Qualidade_Material_PT', 'Texto_Qualidade_Material_ES', 'Texto_Dados_Basicos_PT', 'Texto_Dados_Basicos_ES', 'Texto REF LMR',
-        *ltd_cols
-    ]
-    
-    # Filtra apenas colunas que existem
-    final_cols = [c for c in colunas_organizadas if c in df.columns]
-    
-
-        
     return df

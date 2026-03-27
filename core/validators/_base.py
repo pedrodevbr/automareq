@@ -20,7 +20,10 @@ import pandas as pd
 from tqdm import tqdm
 
 from config.ai import ai_model_text
-from config.personnel import country_for_responsavel
+from utils.formatting import (
+    lang_instruction,
+    strip_json_fences,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -33,6 +36,13 @@ TEXT_COLUMN = "Texto_PT"
 EMBED_THRESHOLD = 0.99       # cosine similarity above which texts are approved without AI
 EMBED_BATCH_SIZE = 50
 MAX_AUDIT_WORKERS = 8
+
+# Re-export from utils.formatting for backward compatibility
+__all__ = [
+    "EMBEDDING_MODEL", "TEXT_COLUMN", "EMBED_THRESHOLD", "EMBED_BATCH_SIZE",
+    "MAX_AUDIT_WORKERS", "LLMRunner", "run_llm_parallel",
+    "strip_json_fences", "lang_instruction", "check_pn_in_obs_static",
+]
 
 
 # ---------------------------------------------------------------------------
@@ -150,20 +160,6 @@ def run_llm_parallel(
 # ---------------------------------------------------------------------------
 # Shared helpers
 # ---------------------------------------------------------------------------
-
-def strip_json_fences(text: str) -> str:
-    """Remove ```json ... ``` fences that some models add."""
-    text = text.strip()
-    if text.startswith("```"):
-        text = re.sub(r"^```(?:json)?\n?", "", text)
-        text = re.sub(r"\n?```$", "", text)
-    return text.strip()
-
-
-def lang_instruction(country: str) -> str:
-    """Returns a language directive to append to user messages."""
-    return "Responda em português." if country == "BR" else "Responda en español."
-
 
 def check_pn_in_obs_static(pn: str, obs: str) -> bool:
     """Case-insensitive PN presence check, ignoring hyphens and spaces."""

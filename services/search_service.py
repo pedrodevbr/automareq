@@ -19,9 +19,6 @@ from __future__ import annotations
 import hashlib
 import json
 import logging
-import os
-import re
-import sys
 import threading
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass, asdict
@@ -30,45 +27,16 @@ from pathlib import Path
 from typing import Optional
 
 import pandas as pd
-from openai import OpenAI
 from tenacity import retry, stop_after_attempt, wait_exponential
 from tqdm import tqdm
 
-if hasattr(sys.stdout, "reconfigure"):
-    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-if hasattr(sys.stderr, "reconfigure"):
-    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+from config.personnel import country_for_responsavel
+from core.validators._base import LLMRunner
+from utils.formatting import configure_encoding, lang_instruction, strip_json_fences
+
+configure_encoding()
 
 logger = logging.getLogger(__name__)
-
-try:
-    from config.config import country_for_responsavel
-except ImportError:
-    def country_for_responsavel(resp_key: str) -> str:  # type: ignore[misc]
-        return "BR"
-
-
-def _lang_instruction(country: str) -> str:
-    return "Responda em português." if country == "BR" else "Responda en español."
-
-# ---------------------------------------------------------------------------
-# Shared helpers
-# ---------------------------------------------------------------------------
-
-def _get_openrouter_client() -> OpenAI:
-    api_key = os.getenv("OPENROUTER_API_KEY")
-    if not api_key:
-        raise ValueError("OPENROUTER_API_KEY not found in environment / .env")
-    return OpenAI(base_url="https://openrouter.ai/api/v1", api_key=api_key)
-
-
-def _strip_markdown_json(text: str) -> str:
-    """Remove ```json ... ``` fences that some models add."""
-    text = text.strip()
-    if text.startswith("```"):
-        text = re.sub(r"^```(?:json)?\n", "", text)
-        text = re.sub(r"\n```$", "", text)
-    return text.strip()
 
 
 # ---------------------------------------------------------------------------
@@ -316,7 +284,6 @@ class ReferenceValidator:
         cache_path: str | Path = "cache/search_cache.json",
         cache_ttl_days: int = _DEFAULT_TTL_DAYS,
     ) -> None:
-        self.client     = _get_openrouter_client()
         self.model_name = model_name or self.DEFAULT_SEARCH_MODEL
         self.cache      = cache or SearchCache(cache_path=cache_path, ttl_days=cache_ttl_days)
         expired = self.cache.clear_expired()
@@ -382,11 +349,12 @@ class ReferenceValidator:
             texto_pt=texto_pt,
             part_number=part_number if part_number else "Não informado",
             texto_desc=texto_desc,
-            lang=_lang_instruction(country),
+            lang=lang_instruction(country),
         )
 
         try:
-            response = self.client.chat.completions.create(
+            client = LLMRunner.client()
+            response = client.chat.completions.create(
                 model=self.model_name,
                 messages=[
                     {"role": "system", "content": _REFERENCE_SYSTEM_PROMPT},
@@ -395,7 +363,7 @@ class ReferenceValidator:
                 temperature=0.1,
             )
             raw = response.choices[0].message.content or ""
-            clean = _strip_markdown_json(raw)
+            clean = strip_json_fences(raw)
             data: dict = json.loads(clean)
 
             # Perplexity/sonar returns native citations on the response object.

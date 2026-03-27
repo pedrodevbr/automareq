@@ -2,7 +2,7 @@
 _base.py — Shared helpers for analysis stages.
 
 Provides:
-  - step_header:      Console output for stage start
+  - step_header:      Console output for stage start (from utils.formatting)
   - update_row:       Append log messages + set AI decision on a row
   - save_checkpoint:  Export DataFrame per responsável
   - init_analysis_columns: Ensure flag columns exist
@@ -15,18 +15,12 @@ import logging
 import pandas as pd
 
 from utils.export_core import export_by_responsavel
+from utils.formatting import step_header
 
 logger = logging.getLogger(__name__)
 
-
-def step_header(step_num: int, title: str, description: str = "") -> None:
-    """Print a formatted stage header."""
-    bar = "─" * 56
-    print(f"\n┌{bar}┐")
-    print(f"│  [{step_num}] {title:<50}│")
-    if description:
-        print(f"│      {description:<50}│")
-    print(f"└{bar}┘")
+# Re-export step_header for backward compatibility
+__all__ = ["step_header", "update_row", "save_checkpoint", "init_analysis_columns"]
 
 
 def update_row(row: pd.Series, logs: list[str], ai_decisao: str | None = None) -> pd.Series:

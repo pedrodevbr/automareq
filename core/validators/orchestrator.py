@@ -17,6 +17,7 @@ import pandas as pd
 
 from core.validators._base import MAX_AUDIT_WORKERS
 from utils.export_core import export_by_responsavel, export_debug
+from utils.formatting import step_header
 
 logger = logging.getLogger(__name__)
 
@@ -52,7 +53,7 @@ def run_stage_leadtime(df: pd.DataFrame) -> pd.DataFrame:
 def run_stage_grpm(df: pd.DataFrame) -> pd.DataFrame:
     """Stage 2 — GRPM format + ML suggestion + LLM decision."""
     from core.validators.rules import validate_grpm_format
-    from core.validators.ai_stages import suggest_grpm_ml, decide_grpm_llm
+    from core.validators.stages.grpm import suggest_grpm_ml, decide_grpm_llm
 
     print("\n[2]  Stage 2 — GRPM")
     if "pre_analise" not in df.columns:
@@ -97,7 +98,7 @@ def run_stage_grpm(df: pd.DataFrame) -> pd.DataFrame:
 
 def run_stage_texts(df: pd.DataFrame) -> pd.DataFrame:
     """Stage 3 — Texts PT/ES similarity + AI audit."""
-    from core.validators.ai_stages import calculate_text_similarity_batch, run_text_audit
+    from core.validators.stages.texts import calculate_text_similarity_batch, run_text_audit
 
     print("\n[3]  Stage 3 — Textos PT/ES")
     if "pre_analise" not in df.columns:
@@ -128,7 +129,7 @@ def run_stage_texts(df: pd.DataFrame) -> pd.DataFrame:
 
 def run_stage_obs(df: pd.DataFrame) -> pd.DataFrame:
     """Stage 3.5 — OBS Pre-Check."""
-    from core.validators.ai_stages import run_obs_precheck
+    from core.validators.stages.obs import run_obs_precheck
 
     print("\n[3.5]  Stage 3.5 — Observações / PN Pre-Check")
     if "pre_analise" not in df.columns:
@@ -146,7 +147,7 @@ def run_stage_obs(df: pd.DataFrame) -> pd.DataFrame:
 
 def run_stage_reference(df: pd.DataFrame) -> pd.DataFrame:
     """Stage 4 — Market Reference validation."""
-    from core.validators.ai_stages import run_reference_validation
+    from core.validators.stages.reference import run_reference_validation
 
     print("\n[4]  Stage 4 — Referências de Mercado")
     if "pre_analise" not in df.columns:
@@ -181,7 +182,7 @@ def run_stage_reference(df: pd.DataFrame) -> pd.DataFrame:
 
 def run_stage_images(df: pd.DataFrame) -> pd.DataFrame:
     """Stage 5 — Image Validation."""
-    from core.validators.ai_stages import run_image_validation
+    from core.validators.stages.images import run_image_validation
 
     print("\n[5]  Stage 5 — Imagens")
     if "pre_analise" not in df.columns:
