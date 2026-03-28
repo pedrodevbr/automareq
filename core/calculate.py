@@ -139,6 +139,101 @@ def decision_tree_row(row: pd.Series) -> str:
     except Exception:
         return 'ZM'
 
+def _calculate_priority(df: pd.DataFrame) -> pd.Series:
+    """
+    Calcula prioridade de análise para cada material usando operações vetorizadas.
+
+    Retorna uma Series com valores: URGENTE, ALTA, MÉDIA, BAIXA.
+    """
+    # Identificar colunas LTD disponíveis
+    ltd_cols = [col for col in df.columns if "LTD_" in col]
+
+    # --- Máscaras auxiliares ---
+
+    # Estoque zerado ou negativo
+    estoque_col = 'Saldo_Virtual' if 'Saldo_Virtual' in df.columns else 'Estoque_Total'
+    estoque = pd.to_numeric(df.get(estoque_col, 0), errors='coerce').fillna(0)
+    estoque_zerado = estoque <= 0
+
+    # Consumo recente: qualquer LTD > 0 nos últimos 3 períodos
+    if len(ltd_cols) >= 3:
+        consumo_recente_3 = (
+            df[ltd_cols[:3]].apply(pd.to_numeric, errors='coerce').fillna(0) > 0
+        ).any(axis=1)
+    elif ltd_cols:
+        consumo_recente_3 = (
+            df[ltd_cols].apply(pd.to_numeric, errors='coerce').fillna(0) > 0
+        ).any(axis=1)
+    else:
+        consumo_recente_3 = pd.Series(False, index=df.index)
+
+    # Consumo nos últimos 6 LTDs
+    if len(ltd_cols) >= 6:
+        consumo_recente_6 = (
+            df[ltd_cols[:6]].apply(pd.to_numeric, errors='coerce').fillna(0) > 0
+        ).any(axis=1)
+    elif ltd_cols:
+        consumo_recente_6 = (
+            df[ltd_cols].apply(pd.to_numeric, errors='coerce').fillna(0) > 0
+        ).any(axis=1)
+    else:
+        consumo_recente_6 = pd.Series(False, index=df.index)
+
+    # Helper to safely get a numeric column (returns Series of zeros when missing)
+    def _safe_numeric(col_name: str) -> pd.Series:
+        if col_name in df.columns:
+            return pd.to_numeric(df[col_name], errors='coerce').fillna(0)
+        return pd.Series(0, index=df.index, dtype=float)
+
+    # Criticidade
+    criticidade = _safe_numeric('Criticidade')
+
+    # PR_Calculado
+    pr_calc = _safe_numeric('PR_Calculado')
+
+    # Estoque abaixo do PR
+    estoque_abaixo_pr = estoque < pr_calc
+
+    # Preço desatualizado
+    anos_ult_compra = _safe_numeric('Anos_Ultima_Compra')
+    preco_desatualizado = anos_ult_compra > 2
+
+    # Valor alto da ordem
+    valor_total_ordem = _safe_numeric('Valor_Total_Ordem')
+    valor_alto = valor_total_ordem > 10000
+
+    # Demanda anual positiva
+    demanda_anual = _safe_numeric('Demanda_Anual')
+    tem_demanda = demanda_anual > 0
+
+    # Validação com REVISAR
+    if 'classificacao_validacao' in df.columns:
+        class_val = df['classificacao_validacao'].astype(str).fillna('')
+    else:
+        class_val = pd.Series('', index=df.index)
+    tem_revisar = class_val.str.contains('REVISAR', case=False, na=False)
+
+    # --- Regras de prioridade (ordem importa: mais restritiva primeiro) ---
+
+    # URGENTE: estoque zerado com consumo recente OU criticidade == 1
+    mask_urgente = (estoque_zerado & consumo_recente_3) | (criticidade == 1)
+
+    # ALTA: abaixo do PR com consumo em 6 períodos, OU preço desatualizado com valor alto
+    mask_alta = (estoque_abaixo_pr & consumo_recente_6) | (preco_desatualizado & valor_alto)
+
+    # MÉDIA: tem demanda mas estoque cobre curto prazo, OU tem REVISAR
+    mask_media = (tem_demanda & ~estoque_zerado & ~estoque_abaixo_pr) | tem_revisar
+
+    # Aplicação com np.select (primeira condição verdadeira vence)
+    priority = np.select(
+        [mask_urgente, mask_alta, mask_media],
+        ['URGENTE', 'ALTA', 'MÉDIA'],
+        default='BAIXA',
+    )
+
+    return pd.Series(priority, index=df.index)
+
+
 def run_calculations(df_input: pd.DataFrame) -> pd.DataFrame:
     df = df_input.copy()
     
@@ -372,5 +467,10 @@ def run_calculations(df_input: pd.DataFrame) -> pd.DataFrame:
     # Maneira eficiente de adicionar colunas vazias
     df = df.reindex(columns=df.columns.tolist() + empty_cols)
     df[empty_cols] = ''
+
+    # ---------------------------------------------------------
+    # 11. PRIORIDADE DE ANÁLISE
+    # ---------------------------------------------------------
+    df['Prioridade'] = _calculate_priority(df)
 
     return df

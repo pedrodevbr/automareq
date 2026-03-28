@@ -131,7 +131,12 @@ _STAGE_DEFS: list[StageDefinition] = [
     ),
     StageDefinition(
         key="separacao", name="Separação por Grupos", group="Saída",
-        description="Pastas AD/ZSTK por grupo e tributação",
+        description="3 pastas: grupos, pendentes, sem reposição + resumo",
+        optional=True,
+    ),
+    StageDefinition(
+        key="relatorios", name="Relatórios Acionáveis", group="Saída",
+        description="Excel multi-abas com ações por analista",
         optional=True,
     ),
     StageDefinition(
@@ -227,6 +232,7 @@ class Pipeline:
             "analysis_p2":  self._run_analysis_p2,
             "dashboard":    self._run_dashboard,
             "separacao":    self._run_separacao,
+            "relatorios":   self._run_relatorios,
             "emission":     self._run_emission,
         }
         return runners[key]
@@ -355,6 +361,15 @@ class Pipeline:
         export_by_responsavel(self.df, filename="Relatorio")
         separar_por_setor_grupo_taxacao(df=self.df)
         self.results["separacao"].summary = {"materials": len(self.df)}
+
+    def _run_relatorios(self) -> None:
+        assert self.df is not None
+        from utils.actionable_report import generate_all_reports
+        from config.paths import OUTPUT_FOLDER
+        results = generate_all_reports(self.df, OUTPUT_FOLDER)
+        self.results["relatorios"].summary = {
+            "reports": len(results),
+        }
 
     def _run_emission(self) -> None:
         assert self.df is not None

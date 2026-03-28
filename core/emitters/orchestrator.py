@@ -42,13 +42,25 @@ def run_stage_dashboard(df: pd.DataFrame, **kw) -> pd.DataFrame:
 
 
 def run_stage_groups(df: pd.DataFrame, **kw) -> pd.DataFrame:
-    """Stage: groups — Separate into AD/ZSTK folder structure."""
+    """Stage: groups — Separate into 3 folders + analyst summary."""
     from core.emitters.stages.group_separation import separar_por_setor_grupo_taxacao
     try:
-        input_file = kw.get("input_file_path")
-        separar_por_setor_grupo_taxacao(input_file_path=input_file)
+        separar_por_setor_grupo_taxacao(df=df, output_dir=kw.get("output_dir"))
     except Exception as exc:
         logger.error("Stage groups failed: %s", exc)
+    return df
+
+
+def run_stage_reports(df: pd.DataFrame, **kw) -> pd.DataFrame:
+    """Stage: reports — Generate actionable multi-tab Excel reports per analyst."""
+    from utils.actionable_report import generate_all_reports
+    from config.paths import OUTPUT_FOLDER
+    try:
+        output_dir = kw.get("output_dir") or OUTPUT_FOLDER
+        results = generate_all_reports(df, output_dir)
+        print(f"   Relatorios gerados para {len(results)} analistas.")
+    except Exception as exc:
+        logger.error("Stage reports failed: %s", exc)
     return df
 
 
@@ -80,11 +92,12 @@ def run_stage_send(df: pd.DataFrame, **kw) -> pd.DataFrame:
 _ALL_STAGES: list[tuple[str, callable]] = [
     ("dashboard", run_stage_dashboard),
     ("groups",    run_stage_groups),
+    ("reports",   run_stage_reports),
     ("templates", run_stage_templates),
     ("send",      run_stage_send),
 ]
 
-_STAGE_NUMBERS = {"dashboard": 1, "groups": 2, "templates": 3, "send": 4}
+_STAGE_NUMBERS = {"dashboard": 1, "groups": 2, "reports": 3, "templates": 4, "send": 5}
 
 
 # ===========================================================================

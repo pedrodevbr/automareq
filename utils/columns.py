@@ -259,3 +259,235 @@ _DASHBOARD_COLS: list[str] = [
     "Grupo_MRP", "Politica_Sugerida", "PR_Calculado", "MAX_Calculado",
     "Classificacao", "TMD", "CV",
 ]
+
+
+# ---------------------------------------------------------------------------
+# Analyst action columns (focused "O que o analista deve fazer" sheet)
+# ---------------------------------------------------------------------------
+
+ACAO_ANALISTA_COLUMNS: list[str] = [
+    "Codigo_Material", "Texto_Breve_Material", "Responsavel",
+    "Prioridade",  # will be added by calculate.py
+    "Grupo_MRP", "Analise_AI", "acoes_sugeridas",
+    "Quantidade_OP_AI", "Quantidade_OP_Calculada",
+    "Comentario",
+    "classificacao_validacao", "resumo_validacao",
+    "Estoque_Total", "Saldo_Virtual", "Preco_Unitario",
+    "PR_Calculado", "MAX_Calculado", "Politica_Sugerida",
+    "ref_reference_found", "ref_price_estimated", "ref_supplier",
+    "jira_acao_sugerida",
+    "pos_analise",
+]
+
+
+# ---------------------------------------------------------------------------
+# Human-readable column labels (Portuguese, for analyst-facing reports)
+# ---------------------------------------------------------------------------
+
+COLUMN_LABELS: dict[str, str] = {
+    # ── Identification ───────────────────────────────────────────────────
+    "Codigo_Material": "Código",
+    "Texto_Breve_Material": "Descrição",
+    "Setor_Atividade": "Setor",
+    "Numero_Peca_Fabricante": "Nº Peça Fabricante",
+    "Classificacao_ABC": "Classificação ABC",
+    "Criticidade": "Criticidade",
+    # ── Validation ───────────────────────────────────────────────────────
+    "classificacao_validacao": "Validação",
+    "score_validacao": "Score Validação",
+    "resumo_validacao": "Detalhes Validação",
+    # ── GRPM ─────────────────────────────────────────────────────────────
+    "Grupo_Mercadoria": "Grupo Mercadoria",
+    "grpm_decisao_llm": "Decisão GRPM",
+    "grpm_novo_codigo": "Novo Cód. GRPM",
+    "grpm_novo_descricao": "Nova Desc. GRPM",
+    "grpm_justificativa": "Justificativa GRPM",
+    # ── Planning ─────────────────────────────────────────────────────────
+    "Analise_Gestor": "Análise Gestor",
+    "Planejador_MRP": "Planejador MRP",
+    "Planejador_Sugerido": "Planejador Sugerido",
+    "Grupo_MRP": "Grupo MRP",
+    "Politica_Atual": "Política Atual",
+    "PR_Atual": "PR Atual",
+    "MAX_Atual": "MAX Atual",
+    "Politica_Sugerida": "Política Sugerida",
+    "Quantidade_OP_Calculada": "Qtd. Calculada",
+    "PR_Calculado": "PR Calculado",
+    "MAX_Calculado": "MAX Calculado",
+    "Estoque_Seguranca": "Estoque Segurança",
+    "Nivel_Servico": "Nível de Serviço",
+    # ── Financial ────────────────────────────────────────────────────────
+    "Estoque_Total": "Estoque Total",
+    "Saldo_Virtual": "Saldo Virtual",
+    "Preco_Unitario": "Preço Unit.",
+    "Valor Estoque": "Valor Estoque",
+    "Valor_Atualizado": "Valor Atualizado",
+    "Valor_Tributado": "Valor Tributado",
+    # ── Market Reference ─────────────────────────────────────────────────
+    "ref_reference_found": "Referência Encontrada",
+    "ref_supplier": "Fornecedor Ref.",
+    "ref_url": "URL Referência",
+    "ref_search_links": "Links de Pesquisa",
+    "ref_price_estimated": "Preço Estimado Ref.",
+    "ref_currency": "Moeda Ref.",
+    "ref_availability": "Disponibilidade Ref.",
+    "ref_part_number_confirmed": "PN Confirmado",
+    "ref_part_number_note": "Nota PN",
+    "ref_text_coverage": "Cobertura Texto",
+    "ref_coverage_gaps": "Lacunas Cobertura",
+    # ── OBS / PN ─────────────────────────────────────────────────────────
+    "obs_pn_presente": "PN Presente",
+    "obs_referencia_extraida": "Ref. Extraída",
+    "obs_sugestao_texto": "Sugestão Texto OBS",
+    # ── AI Analysis ──────────────────────────────────────────────────────
+    "Analise_AI": "Decisão IA",
+    "Quantidade_OP_AI": "Qtd. Sugerida IA",
+    "PR_AI": "PR IA",
+    "MAX_AI": "MAX IA",
+    "Politica_AI": "Política IA",
+    "Comentario": "Comentário",
+    # ── Demand ───────────────────────────────────────────────────────────
+    "Consumo_Medio_Mensal": "Consumo Médio Mensal",
+    "Demanda_Mensal": "Demanda Mensal",
+    "Demanda_Programada": "Demanda Programada",
+    "Demanda_Anual": "Demanda Anual",
+    "Perfil_Demanda": "Perfil Demanda",
+    "TMD": "TMD",
+    "CV": "CV",
+    "Classificacao": "Classificação",
+    "Outliers": "Outliers",
+    "Data_Ultimo_Consumo": "Último Consumo",
+    "Quantidade_201_12m": "Qtd. 201 (12m)",
+    # ── Purchase Orders ──────────────────────────────────────────────────
+    "Data_Ultimo_Pedido": "Último Pedido",
+    "Anos_Ultima_Compra": "Anos s/ Compra",
+    "Responsavel": "Responsável",
+    "Quantidade_Ordem": "Qtd. Ordem",
+    "Valor_Total_Ordem": "Valor Total Ordem",
+    # ── Lead Time ────────────────────────────────────────────────────────
+    "Prazo_Entrega_Previsto": "Prazo Entrega",
+    "Dias_Em_OP": "Dias em OP",
+    # ── Logistics ────────────────────────────────────────────────────────
+    "Volume": "Volume",
+    "Unidade de volume": "Unid. Volume",
+    "Volume_OP": "Volume OP",
+    "Adicional_Lote_Obrigatorio": "Lote Obrigatório",
+    # ── Image ────────────────────────────────────────────────────────────
+    "img_path": "Imagem",
+    "img_qualidade": "Qualidade Imagem",
+    "img_motivo": "Motivo Imagem",
+    "img_substituir": "Substituir Imagem",
+    # ── Post-analysis ────────────────────────────────────────────────────
+    "pos_analise": "Pós-Análise",
+    # ── Texts ────────────────────────────────────────────────────────────
+    "Texto_PT": "Texto PT",
+    "Texto_ES": "Texto ES",
+    "Texto_Observacao_PT": "Obs. PT",
+    "Texto_Observacao_ES": "Obs. ES",
+    "Texto_Qualidade_Material_PT": "Qual. Material PT",
+    "Texto_Qualidade_Material_ES": "Qual. Material ES",
+    "Texto_Dados_Basicos_PT": "Dados Básicos PT",
+    "Texto_Dados_Basicos_ES": "Dados Básicos ES",
+    "Texto REF LMR": "Texto REF LMR",
+    "Texto_Sugerido": "Texto Sugerido",
+    "AD_texto": "Texto AD",
+    "SMIT_texto": "Texto SMIT",
+    "FRAC_texto": "Texto FRAC",
+    "similarity_score": "Score Similaridade",
+    "Text_Analysis": "Análise Texto",
+    # ── JIRA ─────────────────────────────────────────────────────────────
+    "jira_historico_resumo": "Histórico JIRA",
+    "jira_acao_sugerida": "Ação Sugerida JIRA",
+    "jira_tickets_count": "Qtd. Tickets JIRA",
+    "jira_status_atual": "Status JIRA",
+    # ── Actions ──────────────────────────────────────────────────────────
+    "acoes_sugeridas": "Ações para o Analista",
+    # ── Extra ────────────────────────────────────────────────────────────
+    "Prioridade": "Prioridade",
+    "RTP1": "RTP1",
+    "RTP2": "RTP2",
+    "RTP3": "RTP3",
+    "RTP6": "RTP6",
+    "Quantidade_LMR": "Qtd. LMR",
+}
+
+
+# ---------------------------------------------------------------------------
+# Helper: format acoes_sugeridas
+# ---------------------------------------------------------------------------
+
+def format_acoes_sugeridas(val) -> str:
+    """Format *acoes_sugeridas* as numbered text.
+
+    Accepts a list, the string representation of a list (e.g. "['a','b']"),
+    or a plain string.  Returns empty string when there are no actions.
+    """
+    import ast
+
+    if val is None or (isinstance(val, float) and pd.isna(val)):
+        return ""
+
+    items: list[str] = []
+
+    if isinstance(val, list):
+        items = val
+    elif isinstance(val, str):
+        val = val.strip()
+        if not val:
+            return ""
+        # Try to parse as a Python list literal
+        if val.startswith("["):
+            try:
+                parsed = ast.literal_eval(val)
+                if isinstance(parsed, list):
+                    items = [str(i) for i in parsed]
+                else:
+                    items = [str(parsed)]
+            except (ValueError, SyntaxError):
+                items = [val]
+        else:
+            items = [val]
+
+    # Filter out empty strings
+    items = [s.strip() for s in items if str(s).strip()]
+
+    if not items:
+        return ""
+
+    return "\n".join(f"{i}. {item}" for i, item in enumerate(items, 1))
+
+
+# ---------------------------------------------------------------------------
+# Helper: rename columns to human-readable labels
+# ---------------------------------------------------------------------------
+
+def humanize_columns(df: pd.DataFrame, columns: list[str] | None = None) -> pd.DataFrame:
+    """Return a copy of *df* with columns renamed to Portuguese labels.
+
+    Parameters
+    ----------
+    df : pd.DataFrame
+        Source DataFrame.
+    columns : list[str] | None
+        If given, only these columns are kept (in order) before renaming.
+        Missing columns are silently skipped.
+
+    Returns
+    -------
+    pd.DataFrame
+        A renamed copy — the original DataFrame is never mutated.
+    """
+    out = df.copy()
+
+    if columns is not None:
+        present = [c for c in columns if c in out.columns]
+        out = out[present]
+
+    # Format acoes_sugeridas before renaming
+    if "acoes_sugeridas" in out.columns:
+        out["acoes_sugeridas"] = out["acoes_sugeridas"].apply(format_acoes_sugeridas)
+
+    rename_map = {c: COLUMN_LABELS[c] for c in out.columns if c in COLUMN_LABELS}
+    out = out.rename(columns=rename_map)
+
+    return out
